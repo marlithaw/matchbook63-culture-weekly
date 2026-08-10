@@ -1,0 +1,180 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>Bullying Response Protocol &middot; Matchbook 63</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap');
+:root{--red:#E21C24;--ember:#C8161D;--yellow:#F9DC7C;--ink:#1A1A1A;--charcoal:#232323;
+--slate:#4A4A4A;--paper:#F4F4F2;--line:#e2e2df;--muted:#8a8a86;
+--disp:'Oswald',sans-serif;--body:'Inter',system-ui,sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);font-family:var(--body);color:var(--ink);line-height:1.62;font-size:16px}
+.wrap{max-width:860px;margin:0 auto;background:#fff;box-shadow:0 24px 60px -30px rgba(0,0,0,.4)}
+.hero{background:var(--charcoal);background-image:radial-gradient(circle at 85% -10%,var(--red) 0%,transparent 55%);
+color:#fff;padding:64px 46px 0}
+.hero .kicker{font-family:var(--disp);text-transform:uppercase;letter-spacing:.16em;font-size:12px;
+color:var(--yellow);margin-bottom:16px}
+.hero h1{font-family:var(--disp);text-transform:uppercase;font-size:clamp(40px,8.6vw,82px);
+line-height:.96;font-weight:700}
+.hero h1 em{color:var(--yellow);font-style:normal}
+.hero .lede{font-size:17px;color:#ddd;margin:20px 0 30px;max-width:62ch}
+.zig{display:block;width:100%;height:16px}
+section{padding:40px 46px}
+section+section{border-top:1px solid var(--line)}
+.eye{font-family:var(--disp);text-transform:uppercase;letter-spacing:.14em;font-size:12.5px;
+color:var(--red);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.eye:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red);flex:none}
+h2.disp{font-family:var(--disp);text-transform:uppercase;font-size:clamp(26px,4.8vw,42px);
+line-height:1.04;margin-bottom:14px}
+h3{font-family:var(--disp);text-transform:uppercase;font-size:19px;margin:22px 0 8px;letter-spacing:.02em}
+p{margin-bottom:13px;color:var(--slate)}
+p strong,li strong{color:var(--ink)}
+ul,ol{margin:0 0 14px 20px}li{margin-bottom:8px;color:var(--slate)}
+.card{background:#fff;border:1px solid var(--line);border-left:5px solid var(--red);
+padding:18px 20px;margin:16px 0}
+.card .t{font-family:var(--disp);text-transform:uppercase;font-size:16px;margin-bottom:7px;
+letter-spacing:.02em;color:var(--ink)}
+.card p:last-child{margin-bottom:0}
+.pill{display:inline-block;background:var(--red);color:#fff;font-family:var(--disp);
+text-transform:uppercase;font-size:10.5px;letter-spacing:.1em;padding:3px 9px;border-radius:3px;
+margin-left:8px;vertical-align:2px}
+.pq{background:var(--yellow);padding:14px 18px;margin:16px 0;font-weight:600;color:var(--ink);
+border-radius:3px}
+.pq.red{background:#fff;border:2px solid var(--red);color:var(--ember)}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14.5px}
+th{background:var(--charcoal);color:#fff;font-family:var(--disp);text-transform:uppercase;
+letter-spacing:.06em;font-size:12px;text-align:left;padding:11px 13px}
+td{padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--slate)}
+tr:nth-child(even) td{background:#fafaf8}
+td strong{color:var(--ink)}
+.todo{background:#FFF3C4;border:2px dashed var(--ember);padding:11px 14px;margin:14px 0;
+font-size:14px;color:#7a4b00;border-radius:3px}
+.todo:before{content:"ADD \25B8  ";font-family:var(--disp);font-weight:700;color:var(--ember)}
+.steps{counter-reset:s;list-style:none;margin-left:0}
+.steps li{counter-increment:s;position:relative;padding-left:44px;margin-bottom:15px}
+.steps li:before{content:counter(s);position:absolute;left:0;top:0;width:30px;height:30px;
+background:var(--red);color:#fff;font-family:var(--disp);font-size:15px;display:flex;
+align-items:center;justify-content:center;border-radius:50%}
+.closer{background:var(--charcoal);color:#fff;padding:40px 46px}
+.closer h2{font-family:var(--disp);text-transform:uppercase;font-size:30px;margin-bottom:12px}
+.closer h2 em{color:var(--red);font-style:normal}
+.closer p{color:#c9c9c5}
+.sig{margin-top:20px;padding-top:18px;border-top:1px solid #3a3a3a;font-size:14px;color:#ddd}
+.srr{font-family:var(--disp);text-transform:uppercase;color:var(--yellow);letter-spacing:.12em;
+font-size:14px;margin-top:18px}
+.meta{font-size:13px;color:var(--muted);margin-top:6px}
+@media print{
+ body{background:#fff}.wrap{box-shadow:none;max-width:100%}
+ .hero{background:var(--charcoal) !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .closer,th,.steps li:before,.pill{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .pq,.todo,.card{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ section{page-break-inside:auto}.card,table{page-break-inside:avoid}
+ h2.disp,h3{page-break-after:avoid}
+}
+@media(max-width:600px){.hero,section,.closer{padding-left:22px;padding-right:22px}}
+</style></head><body><div class="wrap">
+<div class="hero"><div class="kicker">Matchbook Learning at Wendell Phillips School 63 &middot; K&ndash;8</div><h1>Bullying <em>Response</em> Protocol</h1><p class="lede">How we prevent, report, investigate, and repair bullying, together.</p></div>
+<svg class="zig" viewBox="0 0 860 16" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 16 L21.5 0 L43 16 L64.5 0 L86 16 L107.5 0 L129 16 L150.5 0 L172 16 L193.5 0 L215 16 L236.5 0 L258 16 L279.5 0 L301 16 L322.5 0 L344 16 L365.5 0 L387 16 L408.5 0 L430 16 L451.5 0 L473 16 L494.5 0 L516 16 L537.5 0 L559 16 L580.5 0 L602 16 L623.5 0 L645 16 L666.5 0 L688 16 L709.5 0 L731 16 L752.5 0 L774 16 L795.5 0 L817 16 L838.5 0 L860 16 Z" fill="#E21C24"/></svg>
+
+<section><div class="eye">Why this matters</div>
+<h2 class="disp">Safety is not negotiable</h2>
+<p>Every student at Wendell Phillips has the right to learn in a place where they feel safe. Bullying is not a normal part of growing up, and it is not &ldquo;kids being kids.&rdquo; When it happens, how the adults respond decides whether a child feels protected or feels alone.</p>
+<p>This protocol is our shared, consistent way to respond. It protects the student who was harmed first, it takes every report seriously, and it makes sure no single adult has to carry it alone.</p>
+<div class="pq">If you raise a concern in good faith, that will never be held against you. You do not have to be certain it is bullying to report it. Your job is to notice and tell someone. The process below takes it from there.</div>
+</section>
+
+<section><div class="eye">Definition</div>
+<h2 class="disp">What counts as bullying</h2>
+<p>Bullying is repeated behavior that involves a real or perceived power imbalance and is meant to hurt, control, or humiliate another student. <strong>Three things usually show up together:</strong> it repeats or is likely to repeat, one student holds more power (size, status, numbers, or information), and it is intended to cause harm.</p>
+<h3>The forms it can take</h3>
+<table>
+<tr><th>Form</th><th>Looks like</th></tr>
+<tr><td><strong>Physical</strong></td><td>Hitting, pushing, tripping, or taking and breaking belongings.</td></tr>
+<tr><td><strong>Verbal</strong></td><td>Name-calling, threats, or cruel, repeated teasing.</td></tr>
+<tr><td><strong>Social or relational</strong></td><td>Deliberate exclusion, spreading rumors, or turning a group against someone.</td></tr>
+<tr><td><strong>Cyber</strong></td><td>Hurtful messages, images, or posts, including off campus when they carry into school.</td></tr>
+</table>
+<h3>What is not bullying &mdash; but still gets a response</h3>
+<p>A one-time conflict, a mutual argument, or two students who both had a part in a disagreement is usually conflict, not bullying. Conflict still matters and still gets a response, but it moves down the restorative and Tier 1 path, not this one.</p>
+<div class="pq red">Mislabeling cuts both ways. Calling real bullying &ldquo;just conflict&rdquo; leaves a child unprotected. Calling ordinary conflict &ldquo;bullying&rdquo; can label a child unfairly.</div>
+</section>
+
+<section><div class="eye">Read and do</div>
+<h2 class="disp">The protocol at a glance</h2>
+<p>When bullying is suspected or reported:</p>
+<ol class="steps">
+<li><strong>Keep everyone safe.</strong> Separate the students and make sure the target is okay before anything else.</li>
+<li><strong>Report the same day</strong> to the leadership team, the Director of Culture, the restorative team, and the counselors.</li>
+<li><strong>A counselor interviews the target</strong> using the Bullying Report Form.</li>
+<li><strong>The form goes to the Assistant Deans.</strong></li>
+<li><strong>The Deans interview witnesses and the alleged aggressor</strong>, then decide next steps and consequences.</li>
+<li><strong>The Deans contact the families</strong> of both students.</li>
+<li><strong>The final decision goes back to the team</strong>, and restorative repair and follow-up begin.</li>
+</ol>
+</section>
+
+<section><div class="eye">Roles</div>
+<h2 class="disp">Who does what</h2>
+<table>
+<tr><th>Role</th><th>Their part in this protocol</th></tr>
+<tr><td><strong>Teacher or staff who receives the report</strong></td><td>Keep students safe. Write down what you saw or were told, in facts, not conclusions. Report the same day. <strong>Do not investigate, question the group, or confront the alleged aggressor yourself.</strong></td></tr>
+<tr><td><strong>School Counselors</strong><br>Kern K&ndash;4 &middot; Flores 5&ndash;8</td><td>Interview the target with care, using the Bullying Report Form. Support the student's emotional safety first, then capture an accurate account. Pass the completed form to the Assistant Deans.</td></tr>
+<tr><td><strong>Restorative Team</strong></td><td>Lead repair when appropriate, support re-entry, and keep both students connected to the community. Restorative work supports the process; it does not replace consequences in confirmed bullying.</td></tr>
+<tr><td><strong>Assistant Deans / Administrators</strong></td><td>Interview witnesses and the alleged aggressor. Determine whether it meets the bullying definition. Decide consequences. Communicate with both families. Share the final decision with the team.</td></tr>
+<tr><td><strong>Director of Culture &amp; Leadership Team</strong></td><td>Receive every report, protect the timeliness and integrity of the process, track patterns across the school, and make sure follow-up actually happens.</td></tr>
+</table>
+</section>
+
+<section><div class="eye">Step by step</div>
+<h2 class="disp">The full sequence</h2>
+<div class="card"><div class="t">Step 1 &middot; Keep everyone safe <span class="pill">Immediately</span></div>
+<p>Separate the students. Make sure the target is physically and emotionally okay. Do not question students about the incident in front of their peers. Get another adult to cover if you need to.</p></div>
+<div class="card"><div class="t">Step 2 &middot; Report the same day</div>
+<p><strong>Get a Bullying Report Form.</strong> Copies are kept with the counselors, the restorative team, teachers, the front office, and Mr. O's office.</p>
+<p>Notify the leadership team, the Director of Culture, the restorative team, and the counselors. Report what you directly saw or were told, in facts (&ldquo;Jordan said Sam pushed him twice and took his lunch&rdquo;), not conclusions (&ldquo;Sam is a bully&rdquo;).</p></div>
+<div class="card"><div class="t">Step 3 &middot; A counselor interviews the target</div>
+<p>A counselor meets privately and gently with the student who was harmed, and records the account on the Bullying Report Form. The counselor's first job is the student's safety and emotional wellbeing, then an accurate record.</p></div>
+<div class="card"><div class="t">Step 4 &middot; The form goes to the Assistant Deans</div>
+<p>The completed Bullying Report Form is handed to the Assistant Deans, who own the investigation from this point.</p></div>
+<div class="card"><div class="t">Step 5 &middot; The Deans interview witnesses and the alleged aggressor</div>
+<p>The Assistant Deans gather the other accounts: any witnesses first, then the alleged aggressor. They keep an open mind and stay with the facts.</p></div>
+<div class="card"><div class="t">Step 6 &middot; Determine and decide</div>
+<p>The Assistant Deans, <strong>in collaboration with the Director of Culture</strong>, decide whether the incident meets the bullying definition and set consequences. Consequences are progressive and restorative-informed: they hold the student accountable and teach a different choice. They are not punishment alone.</p></div>
+<div class="card"><div class="t">Step 7 &middot; Communicate with families</div>
+<p>The <strong>Assistant Principal or the Director of Culture</strong> contacts both families &mdash; which one depends on the student's tier. The target's family hears what happened and how we are keeping their child safe. The aggressor's family hears what happened and the next steps.</p></div>
+<div class="card"><div class="t">Step 8 &middot; The final decision goes back to the team</div>
+<p>The <strong>Campus Administrator</strong> shares the final determination with the counselors, restorative team, Director of Culture, and leadership, so everyone supporting these students knows the outcome and the plan.</p></div>
+<div class="card"><div class="t">Step 9 &middot; Repair and re-entry</div>
+<p>When appropriate, the restorative team leads repair and supports the aggressor's re-entry, and keeps supporting the target. <strong>In confirmed bullying, repair happens in addition to consequences, not instead of them.</strong></p></div>
+<div class="card"><div class="t">Step 10 &middot; Follow up and watch for retaliation</div>
+<p>Someone on the team checks back with the target to make sure it stopped, and watches for retaliation. Retaliation against anyone who reported or took part is treated as a new and serious incident.</p></div>
+</section>
+
+<section><div class="eye">Timelines</div>
+<h2 class="disp">Recommended timeframes</h2>
+<table>
+<tr><th>Step</th><th>Target timeframe</th></tr>
+<tr><td>Report of a suspected incident</td><td><strong>Same school day</strong></td></tr>
+<tr><td>Counselor interviews the target</td><td><strong>Within 24 hours of receiving the report</strong></td></tr>
+<tr><td>Deans interview witnesses and the alleged aggressor</td><td><strong>Within 24 hours of receiving the report</strong></td></tr>
+<tr><td>Family communication</td><td><strong>Within 24 hours of receiving the report</strong></td></tr>
+<tr><td>Follow-up check-ins with the target</td><td>At 1 week and 2 weeks</td></tr>
+</table>
+</section>
+
+<section><div class="eye">Records</div>
+<h2 class="disp">Documentation and confidentiality</h2>
+<p>The Bullying Report Form is the official record for each case. <strong>Copies are kept with the counselors, the restorative team, teachers, the front office, and Mr. O's office.</strong></p>
+<p>Share details on a need-to-know basis, with the adults directly supporting the students. We protect student privacy and follow FERPA.</p>
+<p>We stay honest about what we can and cannot promise. <strong>We cannot promise a report will stay completely private</strong>, because keeping a child safe sometimes means involving others. We can promise it will be handled with care and shared only with the people who need to act on it.</p>
+<h3>Reporting in good faith is protected</h3>
+<p>Anyone &mdash; a student, a family member, or a staff member &mdash; can report a concern. A good-faith report will never be held against the person who made it, even if it turns out not to be bullying. Retaliation against a reporter, a target, or a witness is itself a violation of this protocol.</p>
+<p class="meta">Version 1.0 &middot; Effective August 2026 &middot; Owner: Director of Student Support &amp; School Culture &middot; Contributors: School Counselors, Restorative Team, Assistant Deans, Leadership Team</p>
+</section>
+
+<div class="closer">
+<h2>Questions? <em>Ask.</em></h2>
+<p>This is a living document. If a step does not work in practice, tell the Director of Culture so we can fix it. Edge cases and "is this actually a Level 2?" calls go to the counselors or to me — that is what we are here for, and asking is never an imposition.</p>
+<div class="sig">M. Williams<br>Director of Student Support &amp; School Culture<br>
+Matchbook Learning at Wendell Phillips School 63 &middot; K&ndash;8</div>
+<div class="srr">Safe. Respectful. Responsible.</div>
+</div>
+</div></body></html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>MTSS at a Glance &middot; Matchbook 63</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap');
+:root{--red:#E21C24;--ember:#C8161D;--yellow:#F9DC7C;--ink:#1A1A1A;--charcoal:#232323;
+--slate:#4A4A4A;--paper:#F4F4F2;--line:#e2e2df;--muted:#8a8a86;
+--disp:'Oswald',sans-serif;--body:'Inter',system-ui,sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);font-family:var(--body);color:var(--ink);line-height:1.62;font-size:16px}
+.wrap{max-width:860px;margin:0 auto;background:#fff;box-shadow:0 24px 60px -30px rgba(0,0,0,.4)}
+.hero{background:var(--charcoal);background-image:radial-gradient(circle at 85% -10%,var(--red) 0%,transparent 55%);
+color:#fff;padding:64px 46px 0}
+.hero .kicker{font-family:var(--disp);text-transform:uppercase;letter-spacing:.16em;font-size:12px;
+color:var(--yellow);margin-bottom:16px}
+.hero h1{font-family:var(--disp);text-transform:uppercase;font-size:clamp(40px,8.6vw,82px);
+line-height:.96;font-weight:700}
+.hero h1 em{color:var(--yellow);font-style:normal}
+.hero .lede{font-size:17px;color:#ddd;margin:20px 0 30px;max-width:62ch}
+.zig{display:block;width:100%;height:16px}
+section{padding:40px 46px}
+section+section{border-top:1px solid var(--line)}
+.eye{font-family:var(--disp);text-transform:uppercase;letter-spacing:.14em;font-size:12.5px;
+color:var(--red);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.eye:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red);flex:none}
+h2.disp{font-family:var(--disp);text-transform:uppercase;font-size:clamp(26px,4.8vw,42px);
+line-height:1.04;margin-bottom:14px}
+h3{font-family:var(--disp);text-transform:uppercase;font-size:19px;margin:22px 0 8px;letter-spacing:.02em}
+p{margin-bottom:13px;color:var(--slate)}
+p strong,li strong{color:var(--ink)}
+ul,ol{margin:0 0 14px 20px}li{margin-bottom:8px;color:var(--slate)}
+.card{background:#fff;border:1px solid var(--line);border-left:5px solid var(--red);
+padding:18px 20px;margin:16px 0}
+.card .t{font-family:var(--disp);text-transform:uppercase;font-size:16px;margin-bottom:7px;
+letter-spacing:.02em;color:var(--ink)}
+.card p:last-child{margin-bottom:0}
+.pill{display:inline-block;background:var(--red);color:#fff;font-family:var(--disp);
+text-transform:uppercase;font-size:10.5px;letter-spacing:.1em;padding:3px 9px;border-radius:3px;
+margin-left:8px;vertical-align:2px}
+.pq{background:var(--yellow);padding:14px 18px;margin:16px 0;font-weight:600;color:var(--ink);
+border-radius:3px}
+.pq.red{background:#fff;border:2px solid var(--red);color:var(--ember)}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14.5px}
+th{background:var(--charcoal);color:#fff;font-family:var(--disp);text-transform:uppercase;
+letter-spacing:.06em;font-size:12px;text-align:left;padding:11px 13px}
+td{padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--slate)}
+tr:nth-child(even) td{background:#fafaf8}
+td strong{color:var(--ink)}
+.todo{background:#FFF3C4;border:2px dashed var(--ember);padding:11px 14px;margin:14px 0;
+font-size:14px;color:#7a4b00;border-radius:3px}
+.todo:before{content:"ADD \25B8  ";font-family:var(--disp);font-weight:700;color:var(--ember)}
+.steps{counter-reset:s;list-style:none;margin-left:0}
+.steps li{counter-increment:s;position:relative;padding-left:44px;margin-bottom:15px}
+.steps li:before{content:counter(s);position:absolute;left:0;top:0;width:30px;height:30px;
+background:var(--red);color:#fff;font-family:var(--disp);font-size:15px;display:flex;
+align-items:center;justify-content:center;border-radius:50%}
+.closer{background:var(--charcoal);color:#fff;padding:40px 46px}
+.closer h2{font-family:var(--disp);text-transform:uppercase;font-size:30px;margin-bottom:12px}
+.closer h2 em{color:var(--red);font-style:normal}
+.closer p{color:#c9c9c5}
+.sig{margin-top:20px;padding-top:18px;border-top:1px solid #3a3a3a;font-size:14px;color:#ddd}
+.srr{font-family:var(--disp);text-transform:uppercase;color:var(--yellow);letter-spacing:.12em;
+font-size:14px;margin-top:18px}
+.meta{font-size:13px;color:var(--muted);margin-top:6px}
+@media print{
+ body{background:#fff}.wrap{box-shadow:none;max-width:100%}
+ .hero{background:var(--charcoal) !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .closer,th,.steps li:before,.pill{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .pq,.todo,.card{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ section{page-break-inside:auto}.card,table{page-break-inside:avoid}
+ h2.disp,h3{page-break-after:avoid}
+}
+@media(max-width:600px){.hero,section,.closer{padding-left:22px;padding-right:22px}}
+</style></head><body><div class="wrap">
+<div class="hero"><div class="kicker">Matchbook Learning at Wendell Phillips School 63 &middot; K&ndash;8</div><h1>MTSS <em>Overview</em></h1><p class="lede">The process for requesting academic and behavior support at Wendell Phillips 63.</p></div>
+<svg class="zig" viewBox="0 0 860 16" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 16 L21.5 0 L43 16 L64.5 0 L86 16 L107.5 0 L129 16 L150.5 0 L172 16 L193.5 0 L215 16 L236.5 0 L258 16 L279.5 0 L301 16 L322.5 0 L344 16 L365.5 0 L387 16 L408.5 0 L430 16 L451.5 0 L473 16 L494.5 0 L516 16 L537.5 0 L559 16 L580.5 0 L602 16 L623.5 0 L645 16 L666.5 0 L688 16 L709.5 0 L731 16 L752.5 0 L774 16 L795.5 0 L817 16 L838.5 0 L860 16 Z" fill="#E21C24"/></svg>
+
+<section><div class="eye">Process Overview</div>
+<h2 class="disp">The Request Sequence</h2>
+<p>Bring the student to a collaborative culture meeting first. Try Tier 1 and collaborative supports together. Track for about three weeks. If the need continues, complete the <strong>MTSS Behavior Request</strong> and we build a plan.</p>
+<p>You are not expected to carry any part of this sequence alone. The team works alongside you at every step.</p>
+<p><strong>Safety events skip all of this.</strong> Go straight to Level 3, secure safety, and contact the office now.</p>
+</section>
+
+<section><div class="eye">System Structure</div>
+<h2 class="disp">Academic and Behavior Pathways</h2>
+<table>
+<tr><th></th><th>Academic lane</th><th>Behavior lane</th></tr>
+<tr><td><strong>For</strong></td><td>Reading, math, work completion, academic engagement</td><td>Behavior patterns, regulation, restorative needs</td></tr>
+<tr><td><strong>Tier 1</strong></td><td>Core instruction, scaffolds, small-group support</td><td>Morning Meeting, positive narration, your Teacher Response toolkit</td></tr>
+<tr><td><strong>Tier 2</strong></td><td>Targeted intervention group</td><td>DBRC, Check-In / Check-Out, SAIG, resiliency group</td></tr>
+<tr><td><strong>Tier 3</strong></td><td>Intensive, individualized</td><td>Behavior plan, restorative conference, wraparound</td></tr>
+</table>
+<p>If a student needs both, you complete one MTSS Behavior Request and they get one plan with one owner &mdash; never two plans that do not know about each other.</p>
+</section>
+
+<section><div class="eye">Classification</div>
+<h2 class="disp">Behavior Level Definitions</h2>
+<div class="card"><div class="t">Level 1 &middot; Classroom-managed</div>
+<p>Minor, in-the-moment. Redirects, off-task, small conflicts. <strong>Stays in class.</strong> Use your Teacher Response toolkit. No request needed.</p></div>
+<div class="card"><div class="t">Level 2 &middot; Restorative</div>
+<p>A pattern that continues after Tier 1, and you can say what you tried. <strong>Routes to the Restorative Room.</strong> Complete the MTSS Behavior Request first.</p></div>
+<div class="card"><div class="t">Level 3 &middot; Office / Safety</div>
+<p>Aggression, hands on others, elopement, threats. <strong>The office responds now.</strong> Secure safety, contact the office immediately. Family contact and investigation follow. <strong>Level 3 does not route to Restorative.</strong></p></div>
+</section>
+
+<section><div class="eye">Restorative Support</div>
+<h2 class="disp">Tap-In and Tap-Out</h2>
+<div class="card"><div class="t">Tap-In</div>
+<p>Support comes to you. <strong>The student stays in your room.</strong> Use this whenever it is workable &mdash; keeping a student with their class is almost always the better outcome, and a well-timed tap-in often prevents what would have become a tap-out.</p></div>
+<div class="card"><div class="t">Tap-Out</div>
+<p>The student leaves to the Restorative Room, regulates, and returns.</p></div>
+<p>Both are on the MTSS Behavior Request. Both are tracked. Neither is a failure on your part.</p>
+</section>
+
+<section><div class="eye">Prior to Submission</div>
+<h2 class="disp">The Bias Pause</h2>
+<p>Before requesting support for a subjective behavior &mdash; <strong>defiance, disrespect, or disruption</strong> &mdash; pause and ask:</p>
+<div class="pq red">Would I read this the same way for any student in my room?</div>
+<p>This is not an accusation. Those three categories are where referral disproportionality shows up in every school that measures it, because all three require a judgment call about intent and tone. The pause is a design feature, not a suspicion about you. <strong>If you are unsure, talk with a counselor before you request.</strong></p>
+</section>
+
+<section><div class="eye">Tier 1 Documentation</div>
+<h2 class="disp">Required Before Submission</h2>
+<ol class="steps">
+<li><strong>Bring the student to a collaborative culture meeting.</strong> Before paperwork. This is where most concerns get solved.</li>
+<li><strong>Try Tier 1 supports</strong>, with the team's help. Proximity, nonverbal cue, private redirect, offered choice, calm corner or break, changed task or scaffold, regulation strategy, restorative conversation, seat change, call home.</li>
+<li><strong>Track for about three weeks.</strong> Rough notes are fine &mdash; dates and what you tried.</li>
+<li><strong>Complete the MTSS Behavior Request</strong>, if the need continues. It asks what you tried because you will already have the answer.</li>
+</ol>
+</section>
+
+<section><div class="eye">Available Supports</div>
+<h2 class="disp">Section F Requests</h2>
+<ul>
+<li>Restorative support &mdash; tap-in or tap-out</li>
+<li>Collaborative culture meeting</li>
+<li>A DBRC</li>
+<li>Check-In / Check-Out</li>
+<li>Counselor check-in</li>
+<li>An MTSS behavior plan</li>
+</ul>
+<p>You request these on the form. The multidisciplinary team decides and assigns an owner &mdash; that is what protects you from carrying a plan alone.</p>
+</section>
+
+<section><div class="eye">Review Process</div>
+<h2 class="disp">After Submission</h2>
+<p>The multidisciplinary team &mdash; Director of Culture, counselors, support specialists &mdash; reviews <strong>within 5 school days</strong> and comes back to you with a decision and a named owner.</p>
+<p>If you flagged it Urgent for a safety or crisis concern, you hear from someone the same day.</p>
+<h3>Who to find</h3>
+<p><strong>Counselors:</strong> Kern, Flores &nbsp;&middot;&nbsp; <strong>Restorative Room</strong> &nbsp;&middot;&nbsp; <strong>Assistant Deans</strong><br>
+<strong>Director of Student Support &amp; School Culture:</strong> M. Williams</p>
+<p class="meta">Behavior lane content from MTSS Behavior Request v1.0 (draft for review). Academic lane pending the live Academic MTSS form.</p>
+</section>
+
+<div class="closer">
+<h2>Questions? <em>Ask.</em></h2>
+<p>This is a living document. If a step does not work in practice, tell the Director of Culture so we can fix it. Edge cases and "is this actually a Level 2?" calls go to the counselors or to me — that is what we are here for, and asking is never an imposition.</p>
+<div class="sig">M. Williams<br>Director of Student Support &amp; School Culture<br>
+Matchbook Learning at Wendell Phillips School 63 &middot; K&ndash;8</div>
+<div class="srr">Safe. Respectful. Responsible.</div>
+</div>
+</div></body></html>

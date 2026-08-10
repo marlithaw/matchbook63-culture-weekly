@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"><title>DBRC Quick Guide &middot; Matchbook 63</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap');
+:root{--red:#E21C24;--ember:#C8161D;--yellow:#F9DC7C;--ink:#1A1A1A;--charcoal:#232323;
+--slate:#4A4A4A;--paper:#F4F4F2;--line:#e2e2df;--muted:#8a8a86;
+--disp:'Oswald',sans-serif;--body:'Inter',system-ui,sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);font-family:var(--body);color:var(--ink);line-height:1.62;font-size:16px}
+.wrap{max-width:860px;margin:0 auto;background:#fff;box-shadow:0 24px 60px -30px rgba(0,0,0,.4)}
+.hero{background:var(--charcoal);background-image:radial-gradient(circle at 85% -10%,var(--red) 0%,transparent 55%);
+color:#fff;padding:64px 46px 0}
+.hero .kicker{font-family:var(--disp);text-transform:uppercase;letter-spacing:.16em;font-size:12px;
+color:var(--yellow);margin-bottom:16px}
+.hero h1{font-family:var(--disp);text-transform:uppercase;font-size:clamp(40px,8.6vw,82px);
+line-height:.96;font-weight:700}
+.hero h1 em{color:var(--yellow);font-style:normal}
+.hero .lede{font-size:17px;color:#ddd;margin:20px 0 30px;max-width:62ch}
+.zig{display:block;width:100%;height:16px}
+section{padding:40px 46px}
+section+section{border-top:1px solid var(--line)}
+.eye{font-family:var(--disp);text-transform:uppercase;letter-spacing:.14em;font-size:12.5px;
+color:var(--red);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.eye:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red);flex:none}
+h2.disp{font-family:var(--disp);text-transform:uppercase;font-size:clamp(26px,4.8vw,42px);
+line-height:1.04;margin-bottom:14px}
+h3{font-family:var(--disp);text-transform:uppercase;font-size:19px;margin:22px 0 8px;letter-spacing:.02em}
+p{margin-bottom:13px;color:var(--slate)}
+p strong,li strong{color:var(--ink)}
+ul,ol{margin:0 0 14px 20px}li{margin-bottom:8px;color:var(--slate)}
+.card{background:#fff;border:1px solid var(--line);border-left:5px solid var(--red);
+padding:18px 20px;margin:16px 0}
+.card .t{font-family:var(--disp);text-transform:uppercase;font-size:16px;margin-bottom:7px;
+letter-spacing:.02em;color:var(--ink)}
+.card p:last-child{margin-bottom:0}
+.pill{display:inline-block;background:var(--red);color:#fff;font-family:var(--disp);
+text-transform:uppercase;font-size:10.5px;letter-spacing:.1em;padding:3px 9px;border-radius:3px;
+margin-left:8px;vertical-align:2px}
+.pq{background:var(--yellow);padding:14px 18px;margin:16px 0;font-weight:600;color:var(--ink);
+border-radius:3px}
+.pq.red{background:#fff;border:2px solid var(--red);color:var(--ember)}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14.5px}
+th{background:var(--charcoal);color:#fff;font-family:var(--disp);text-transform:uppercase;
+letter-spacing:.06em;font-size:12px;text-align:left;padding:11px 13px}
+td{padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--slate)}
+tr:nth-child(even) td{background:#fafaf8}
+td strong{color:var(--ink)}
+.todo{background:#FFF3C4;border:2px dashed var(--ember);padding:11px 14px;margin:14px 0;
+font-size:14px;color:#7a4b00;border-radius:3px}
+.todo:before{content:"ADD \25B8  ";font-family:var(--disp);font-weight:700;color:var(--ember)}
+.steps{counter-reset:s;list-style:none;margin-left:0}
+.steps li{counter-increment:s;position:relative;padding-left:44px;margin-bottom:15px}
+.steps li:before{content:counter(s);position:absolute;left:0;top:0;width:30px;height:30px;
+background:var(--red);color:#fff;font-family:var(--disp);font-size:15px;display:flex;
+align-items:center;justify-content:center;border-radius:50%}
+.closer{background:var(--charcoal);color:#fff;padding:40px 46px}
+.closer h2{font-family:var(--disp);text-transform:uppercase;font-size:30px;margin-bottom:12px}
+.closer h2 em{color:var(--red);font-style:normal}
+.closer p{color:#c9c9c5}
+.sig{margin-top:20px;padding-top:18px;border-top:1px solid #3a3a3a;font-size:14px;color:#ddd}
+.srr{font-family:var(--disp);text-transform:uppercase;color:var(--yellow);letter-spacing:.12em;
+font-size:14px;margin-top:18px}
+.meta{font-size:13px;color:var(--muted);margin-top:6px}
+@media print{
+ body{background:#fff}.wrap{box-shadow:none;max-width:100%}
+ .hero{background:var(--charcoal) !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .closer,th,.steps li:before,.pill{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .pq,.todo,.card{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ section{page-break-inside:auto}.card,table{page-break-inside:avoid}
+ h2.disp,h3{page-break-after:avoid}
+}
+@media(max-width:600px){.hero,section,.closer{padding-left:22px;padding-right:22px}}
+</style></head><body><div class="wrap">
+<div class="hero"><div class="kicker">Matchbook Learning at Wendell Phillips School 63 &middot; K&ndash;8</div><h1>DBRC <em>Quick</em> Guide</h1><p class="lede">Tier 2 weekly scoring on SAFE, RESPECTFUL, RESPONSIBLE.</p></div>
+<svg class="zig" viewBox="0 0 860 16" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 16 L21.5 0 L43 16 L64.5 0 L86 16 L107.5 0 L129 16 L150.5 0 L172 16 L193.5 0 L215 16 L236.5 0 L258 16 L279.5 0 L301 16 L322.5 0 L344 16 L365.5 0 L387 16 L408.5 0 L430 16 L451.5 0 L473 16 L494.5 0 L516 16 L537.5 0 L559 16 L580.5 0 L602 16 L623.5 0 L645 16 L666.5 0 L688 16 L709.5 0 L731 16 L752.5 0 L774 16 L795.5 0 L817 16 L838.5 0 L860 16 Z" fill="#E21C24"/></svg>
+
+<section><div class="eye">Overview</div>
+<h2 class="disp">A Weekly Card on Our Three Values</h2>
+<p>A DBRC scores a student on the three expectations every student at Wendell Phillips already knows: <strong>SAFE</strong>, <strong>RESPECTFUL</strong>, <strong>RESPONSIBLE</strong>. Each is rated on a <strong>0&ndash;5 scale</strong>. The weekly averages go into the Tier 2 DBRC Dashboard alongside restorative room visits, ISS, and OSS.</p>
+<p>Because the card runs on the same three values as the rest of the building, a student on a DBRC is not being measured against a private standard. They are being measured against what we ask of everyone, more closely and with more support.</p>
+<div class="card"><div class="t">The weekly goal</div>
+<p><strong>DBRC average of 4.0</strong> across the three values &mdash; a <strong>Total DBRC Points of 12</strong> for the week.</p></div>
+</section>
+
+<section><div class="eye">Scoring</div>
+<h2 class="disp">The 0&ndash;5 Scale</h2>
+<p>Each value is scored 0 to 5. Three values, so a perfect week totals 15 points and the target is 12.</p>
+<table>
+<tr><th>Value</th><th>What it covers</th><th>Weekly target</th></tr>
+<tr><td><strong>SAFE</strong></td><td>Body, hands, and movement keep the student and others safe.</td><td>4.0</td></tr>
+<tr><td><strong>RESPECTFUL</strong></td><td>Words and tone toward adults and peers.</td><td>4.0</td></tr>
+<tr><td><strong>RESPONSIBLE</strong></td><td>Materials, work, and following through on expectations.</td><td>4.0</td></tr>
+</table>
+</section>
+
+<section><div class="eye">Weekly Total</div>
+<h2 class="disp">How the Weekly Score Is Built</h2>
+<p>The dashboard calculates two things and then combines them.</p>
+<ol class="steps">
+<li><strong>Total DBRC Points</strong> &mdash; the three weekly averages added together. Target is 12.</li>
+<li><strong>Total Consequence Deductions</strong> &mdash; drawn from restorative room visits, ISS, and OSS logged that week.</li>
+<li><strong>Weekly Total Points</strong> &mdash; DBRC points minus deductions. This is the number that drives Tier 2 status.</li>
+</ol>
+<p>A student can earn strong value scores and still land low if the week carried consequences. That is intentional: the card measures the whole week, not only the blocks that went well.</p>
+</section>
+
+<section><div class="eye">Status</div>
+<h2 class="disp">Tier 2 Status</h2>
+<p>The dashboard assigns a status from the weekly total.</p>
+<table>
+<tr><th>Status</th><th>What it means</th></tr>
+<tr><td><strong>On Watch</strong></td><td>The student is in Tier 2 and the card is being monitored. Continue and adjust.</td></tr>
+<tr><td><strong>Move to Tier 3</strong></td><td>Tier 2 is not producing movement. The team looks at what is actually driving the behavior.</td></tr>
+</table>
+<div class="pq red">A blank week reads as Move to Tier 3 in the dashboard. Missing data and a failing card look identical in the numbers &mdash; enter every week, even a rough one.</div>
+</section>
+
+<section><div class="eye">Requesting a DBRC</div>
+<h2 class="disp">A DBRC Is Requested, Not Started</h2>
+<div class="pq">A teacher does not start a DBRC directly. It is requested on the MTSS Behavior Request, with Tier 1 supports documented, and the multidisciplinary team decides.</div>
+<p>A DBRC is a Tier 2 intervention, which means the team owns it with you. A mentor gets assigned, the family gets contacted before the card exists, and someone tracks the dashboard weekly. A card started informally has none of that and quietly fails within three weeks.</p>
+<p>You can also raise a student at a collaborative culture meeting.</p>
+</section>
+
+<section><div class="eye">Mentors</div>
+<h2 class="disp">Every Card Has a Named Mentor</h2>
+<p>Each student on the dashboard is assigned a mentor who owns the daily relationship and the weekly entry. The mentor is chosen by relationship, not by role &mdash; the adult this student will actually talk to.</p>
+<p>If no adult on staff fits that description for a particular student, that is itself the finding, and building the relationship comes before the card.</p>
+</section>
+
+<section><div class="eye">Rating Practice</div>
+<h2 class="disp">Two Rules That Matter Most</h2>
+<div class="card"><div class="t">1 &middot; Every day starts fresh</div>
+<p>A hard Monday does not set the ceiling for Tuesday. This is the rule most often broken and the one that decides whether a card works &mdash; a student who believes the week is already lost has no reason to try on Wednesday.</p></div>
+<div class="card"><div class="t">2 &middot; Rate on observable information</div>
+<p>Rate what you actually saw, not your overall sense of the student. This protects the card in both directions.</p>
+<p><strong>Rating too high</strong> destroys the data and the student's trust at the same time &mdash; they know which days went badly, and a score they did not earn tells them you were not really watching. <strong>Rating too low</strong> because the week felt hard, or because of something that happened outside the rating window, makes the card feel unwinnable and the student stops trying.</p>
+<p>The question is always the same: what did I observe, against this value, in this window?</p></div>
+</section>
+
+<section><div class="eye">Reading the Data</div>
+<h2 class="disp">What the Numbers Tell Us</h2>
+<table>
+<tr><th>Pattern</th><th>What we do</th></tr>
+<tr><td><strong>At or above 4.0 average, sustained</strong></td><td>Begin fading the card.</td></tr>
+<tr><td><strong>Approaching 4.0</strong></td><td>Continue. Adjust one value focus, not all three.</td></tr>
+<tr><td><strong>Well below 4.0, sustained</strong></td><td>The card is not the right tool. Escalate and examine what is driving the behavior. <strong>We do not simply add consequences.</strong></td></tr>
+<tr><td><strong>One value far below the other two</strong></td><td>A specific skill gap, not a general behavior problem. Target that value directly.</td></tr>
+<tr><td><strong>Strong DBRC points, high deductions</strong></td><td>The student is doing well in structured time and struggling elsewhere. Look at the settings the deductions came from.</td></tr>
+</table>
+</section>
+
+<section><div class="eye">Fading</div>
+<h2 class="disp">When the Card Ends</h2>
+<p>The card fades in phases &mdash; full weekly scoring, then reduced, then student self-scoring with mentor confirmation, then exit.</p>
+<div class="pq">The mentor relationship does not end. The card is scaffolding. The relationship is the building.</div>
+<p>If a card is not working for a student in your room, bring it to a counselor or the culture team. A card nobody has adjusted in six weeks is usually a card nobody is using.</p>
+</section>
+
+<div class="closer">
+<h2>Questions? <em>Ask.</em></h2>
+<p>This is a living document. If a step does not work in practice, tell the Director of Culture so we can fix it. Edge cases and "is this actually a Level 2?" calls go to the counselors or to me — that is what we are here for, and asking is never an imposition.</p>
+<div class="sig">M. Williams<br>Director of Student Support &amp; School Culture<br>
+Matchbook Learning at Wendell Phillips School 63 &middot; K&ndash;8</div>
+<div class="srr">Safe. Respectful. Responsible.</div>
+</div>
+</div></body></html>
