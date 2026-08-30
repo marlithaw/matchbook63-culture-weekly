@@ -1,4 +1,4 @@
-# Culture & Climate Newsletter — Week 3
+# Culture & Climate Newsletter — Week 5
 
 Static site. No build step, no dependencies.
 
@@ -9,21 +9,30 @@ Do NOT nest them in a subfolder — all internal links are relative and will bre
 ## Files (all required)
 | File | Purpose |
 |---|---|
-| `index.html` | The newsletter. Images and audio are base64-embedded. |
-| `joy-clip.mp4` | Video in the Joy Factor section |
-| `Bullying_Response_Protocol.html` / `.pdf` | Linked from Morning Meeting |
+| `index.html` | The Week 5 newsletter. Images are base64-embedded; videos are separate files linked relatively. |
+| `mm-stewart-expectations.mp4` | Morning Meeting in Action — 5th grade, Mr. Stewart (expectations becoming routine) |
+| `mm-mcdaniel-opening-song.mp4` | Morning Meeting in Action — Kindergarten, Ms. McDaniel (learning the opening song) |
+| `morning-meeting-best-practices.html` | Video library linked from the Morning Meeting Best Practices button |
+| `mm-clip-1.mp4` | Earlier Morning Meeting implementation clip (Best Practices page) |
+| `mm-felker-bullying.mp4` | Ms. Felker "Reporting Is Not Tattling" clip (Best Practices page) |
+| `Bullying_Response_Protocol.html` / `.pdf` | Linked from the Best Practices page |
 | `DBRC_Quick_Guide.html` / `.pdf` | Linked from DBRC + Your Resources |
 | `MTSS_At_A_Glance.html` / `.pdf` | Linked from Your Resources |
-| `DBRC_Student_Rubric.pdf` | Printable student rubric, linked from DBRC |
+| `DBRC_Student_Rubric.pdf` | Printable student rubric, linked from DBRC + Your Resources |
 
-The three sub-documents are fully self-contained (no assets of their own).
+The sub-documents are fully self-contained (no assets of their own).
+`mm-clip-2.mp4`, `mm-clip-3.mp4`, and `joy-clip.mp4` are retained from earlier weeks but are not referenced by the Week 5 build.
+
+## Open items (visible `ADD ▸` placeholders in the newsletter)
+- **80–100% Club** — this week's completion honorees, once confirmed.
+- **Shared Culture Resource Folder** — final folder URL, once confirmed (target: Sep 1).
 
 ## External links (already live, no action needed)
+- Morning Meeting Hub — https://marlithaw.github.io/morningmeeting/
 - Campus Culture site — https://marlithaw.github.io/CC-Teacher_Edition/
 - MTSS Behavior Request (Google Form)
 - Emergent Tree DBRC student list (Google Sheet)
 - Morning Meeting model booking (Google Calendar appointments)
-- Bullying lessons, all bands (Google Doc)
 - Google Fonts: Oswald, Inter, Caveat
 
 ## After deploy
@@ -32,6 +41,6 @@ where it currently reads `PASTE_LIVE_URL_HERE`.
 
 ## Verify
 - Every button loads (none should 404)
-- Video plays in the Joy Factor section
-- Post Wall notes render in a handwriting font (Caveat)
+- Both Morning Meeting in Action videos play on desktop and mobile
+- Attendance reads 91.11% current / 93.16% overall with the full K–8 table
 - Matchbook logo appears in the header
