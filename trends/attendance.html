@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matchbook Attendance Trend</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<style>
+:root{--color-fg:#1A1A1A;--color-fg-muted:#5f5f5b;--color-bg:#ffffff;--color-panel:#ffffff;--color-border-line:#e2e2df;--color-ok:#1f8a57;--color-warn:#E08A00;--color-bad:#C8161D;
+--cds-font-size-caption:13px;--cds-font-size-body:16px;--cds-font-size-heading:19px;--cds-font-size-title:34px;--cds-font-weight-medium:600;
+--cds-gap-xs:4px;--cds-gap-sm:8px;--cds-gap-md:14px;--cds-gap-lg:22px;--cds-gap-xl:32px;--cds-pad-xs:4px;--cds-pad-sm:8px;--cds-pad-md:12px;--cds-pad-lg:20px;--cds-radius:8px;
+--cds-chart-grid:#ececea;--cds-chart-axis:#bdbdb8;--cds-chart-reference:#8a8a86;--cds-chart-muted:#c9c9c4;--cds-chart-status-critical:#E21C24;
+--cds-surface-popover:#ffffff;--cds-border:#d6d6d2;--cds-shadow-popover:0 6px 20px rgba(0,0,0,.12);--cds-text-secondary:#5f5f5b;--cds-dur-slow:.3s;--cds-ease-out:ease-out;
+--font-anthropic-sans:'Inter',system-ui,sans-serif;--font-anthropic-serif:'Oswald',sans-serif;}
+html,body{margin:0;background:#F4F4F2;color:var(--color-fg);font-family:var(--font-anthropic-sans)}
+.topbar{background:#232323;color:#fff;padding:12px 16px}
+.topbar .in{max-width:1120px;margin:0 auto;display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between}
+.topbar a{color:#F9DC7C;font:600 14px 'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.06em;text-decoration:none}
+.topbar span{font:600 14px 'Oswald',sans-serif;text-transform:uppercase;letter-spacing:.08em}
+#dash-root{max-width:1120px;margin:0 auto;padding:22px 16px 48px}
+.bt-h1,.bt-tv,.att-h1,.att-tile-v{text-transform:uppercase}
+</style></head><body>
+<div class="topbar"><div class="in"><span>Matchbook Culture &amp; Climate</span><a href="../index.html#attendance">&larr; Back to Culture Weekly</a></div></div>
+<main id="dash-root">
+<script>window.DASH_DATA={"weekly": [{"week_start": "2026-08-17", "week_label": "Aug 17-21", "days": "5", "campus": "92.05", "elementary": "", "middle": "", "K": "90.33", "G1": "92.43", "G2": "93.90", "G3": "94.96", "G4": "91.38", "G5": "94.56", "G6": "91.99", "G7": "87.36", "G8": "92.68", "campus_ytd": "", "source": "Week 4 edition (campus); grades backed out of Week 5 change column"}, {"week_start": "2026-08-24", "week_label": "Aug 24-28", "days": "5", "campus": "91.11", "elementary": "91.23", "middle": "90.99", "K": "91.83", "G1": "87.15", "G2": "90.24", "G3": "91.46", "G4": "96.06", "G5": "91.04", "G6": "92.90", "G7": "90.93", "G8": "88.83", "campus_ytd": "93.16", "source": "Week 5 edition"}, {"week_start": "2026-08-31", "week_label": "Aug 31-Sep 4", "days": "5", "campus": "86.10", "elementary": "86.93", "middle": "85.18", "K": "86.04", "G1": "84.99", "G2": "83.50", "G3": "88.33", "G4": "91.21", "G5": "87.76", "G6": "89.46", "G7": "82.84", "G8": "80.73", "campus_ytd": "", "source": "Week 6 edition"}, {"week_start": "2026-09-07", "week_label": "Sep 7-11", "days": "5", "campus": "91.94", "elementary": "93.32", "middle": "90.43", "K": "95.16", "G1": "90.83", "G2": "93.89", "G3": "94.10", "G4": "92.93", "G5": "89.39", "G6": "92.47", "G7": "92.31", "G8": "86.83", "campus_ytd": "92.09", "source": "Week 7 edition"}, {"week_start": "2026-09-14", "week_label": "Sep 14-18", "days": "5", "campus": "90.62", "elementary": "90.92", "middle": "90.30", "K": "90.49", "G1": "91.50", "G2": "89.15", "G3": "91.84", "G4": "90.85", "G5": "93.05", "G6": "92.90", "G7": "90.51", "G8": "84.79", "campus_ytd": "91.93", "source": "PowerSchool Attendance Summary by Grade (weekly and YTD reports)"}, {"week_start": "2026-09-21", "week_label": "Sep 21-25", "days": "5", "campus": "91.32", "elementary": "90.81", "middle": "91.88", "K": "87.42", "G1": "92.75", "G2": "90.38", "G3": "89.79", "G4": "93.56", "G5": "93.94", "G6": "90.75", "G7": "92.17", "G8": "91.14", "campus_ytd": "91.85", "source": "PowerSchool Attendance Summary by Grade (weekly and YTD reports)"}, {"week_start": "2026-09-28", "week_label": "Sep 28-Oct 2", "days": "5", "campus": "91.30", "elementary": "91.36", "middle": "91.22", "K": "90.28", "G1": "90.46", "G2": "91.03", "G3": "90.83", "G4": "94.46", "G5": "92.42", "G6": "92.01", "G7": "90.83", "G8": "89.78", "campus_ytd": "91.78", "source": "PowerSchool Attendance Summary by Grade (weekly and YTD reports)"}, {"week_start": "2026-10-05", "week_label": "Oct 5-8", "days": "4", "campus": "89.39", "elementary": "89.03", "middle": "89.80", "K": "89.16", "G1": "86.36", "G2": "85.53", "G3": "91.41", "G4": "91.67", "G5": "87.50", "G6": "94.55", "G7": "90.32", "G8": "85.63", "campus_ytd": "91.57", "source": "Week 11 edition"}, {"week_start": "2026-10-19", "week_label": "Oct 19-23", "days": "5", "campus": "87.56", "elementary": "87.42", "middle": "87.72", "K": "91.05", "G1": "86.91", "G2": "83.86", "G3": "86.46", "G4": "88.99", "G5": "89.70", "G6": "90.33", "G7": "83.23", "G8": "88.34", "campus_ytd": "91.37", "source": "Week 12 edition"}, {"week_start": "2026-10-26", "week_label": "Oct 26-30", "days": "5", "campus": "89.31", "elementary": "89.25", "middle": "89.38", "K": "89.84", "G1": "89.47", "G2": "88.07", "G3": "88.21", "G4": "90.88", "G5": "92.21", "G6": "90.00", "G7": "88.15", "G8": "87.75", "campus_ytd": "91.39", "source": "Week 13 edition"}, {"week_start": "2026-11-02", "week_label": "Nov 2-6", "days": "4", "campus": "91.26", "elementary": "91.88", "middle": "90.57", "K": "92.06", "G1": "93.67", "G2": "88.39", "G3": "92.29", "G4": "91.91", "G5": "92.06", "G6": "91.48", "G7": "91.38", "G8": "87.50", "campus_ytd": "91.46", "source": "PowerSchool Attendance Summary by Grade 11/02-11/06 and 07/30-11/06"}]};</script>
+<script>
+(function(){
+  var DATA = window.DASH_DATA, store = {}, draws = {}, order = [];
+  Object.keys(DATA).forEach(function(k){ store[k] = {status:'ok', data:DATA[k], columns: DATA[k].length ? Object.keys(DATA[k][0]) : []}; });
+  function run(name){ document.querySelectorAll('[data-draw="'+name+'"]').forEach(function(el){ try { draws[name](el); } catch(e){ console.error(name, e); } }); }
+  window.dash = {
+    colors: ['#E21C24','#2F6DB5','#2E9E6B','#8A5CC2','#E08A00','#1A1A1A','#00A3A3','#B5487A'],
+    data: function(id){ return store[id] || {status:'missing', data:[]}; },
+    calc: function(id, o){ var args = o.inputs.map(function(i){ return store[i].data; }); store[id] = {status:'ok', data:o.fn.apply(null, args)}; },
+    draw: function(name, fn){ if (fn) { draws[name] = fn; order.push(name); } run(name); },
+    onData: function(fn){ fn(); },
+    setLink: function(n){ try { history.replaceState(null, '', '#' + n); } catch(e){} },
+    params: function(){ return {}; }, setParams: function(){}, resetParams: function(){}
+  };
+  var t; window.addEventListener('resize', function(){ clearTimeout(t); t = setTimeout(function(){ order.forEach(run); }, 150); });
+})();
+</script>
+
+<style>
+.att{display:flex;flex-direction:column;gap:var(--cds-gap-lg);font-family:var(--font-anthropic-sans)}
+.att-h1{font-family:var(--font-anthropic-serif);font-weight:400;font-size:var(--cds-font-size-title);margin:0}
+.att-sub{color:var(--color-fg-muted);font-size:var(--cds-font-size-caption);margin:var(--cds-gap-xs) 0 0}
+.att-take{font-size:var(--cds-font-size-body);line-height:1.55;margin:var(--cds-gap-sm) 0 0;max-width:62rem}
+.att .att-take b{font-weight:600;font-variant-numeric:tabular-nums}
+.att-tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,11rem),1fr));gap:var(--cds-gap-md)}
+.att-card{background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:var(--cds-pad-lg)}
+.att-tile-l{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.att-tile-v{font-family:var(--font-anthropic-serif);font-weight:400;font-size:var(--cds-font-size-title);font-variant-numeric:tabular-nums;margin-top:var(--cds-gap-xs)}
+.att-tile-n{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);margin-top:var(--cds-gap-xs)}
+.att-card h2{font-size:var(--cds-font-size-heading);font-weight:var(--cds-font-weight-medium);margin:0}
+.att-note{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);margin:var(--cds-gap-xs) 0 var(--cds-gap-md)}
+.att-chart{position:relative;min-height:320px}
+.att-grid{position:relative;min-height:240px}
+.att-toggle{display:flex;flex-wrap:wrap;gap:var(--cds-gap-xs);margin-bottom:var(--cds-gap-sm)}
+.att-toggle button{font:inherit;font-size:var(--cds-font-size-caption);padding:var(--cds-pad-xs) var(--cds-pad-sm);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);background:var(--color-bg);color:var(--color-fg);cursor:pointer}
+.att-toggle button[aria-pressed="true"]{background:var(--color-fg);color:var(--color-bg);border-color:var(--color-fg)}
+.att-tip{position:absolute;z-index:2;background:var(--cds-surface-popover);border:1px solid var(--cds-border);border-radius:var(--cds-radius);box-shadow:var(--cds-shadow-popover);padding:var(--cds-pad-xs) var(--cds-pad-sm);font-size:var(--cds-font-size-caption);pointer-events:none;white-space:nowrap}
+.att-tip-h{color:var(--cds-text-secondary);margin-bottom:2px}
+.att-tip-r{display:flex;align-items:center;gap:6px;font-variant-numeric:tabular-nums}
+.att-sw{width:8px;height:8px;border-radius:2px;display:inline-block}
+.att .up{color:var(--color-ok)}
+.att .down{color:var(--color-bad)}
+.att-tablewrap{overflow-x:auto;max-height:28rem;overflow-y:auto}
+.att-table{border-collapse:collapse;width:100%;font-size:var(--cds-font-size-caption);font-variant-numeric:tabular-nums}
+.att-table th{position:sticky;top:0;background:var(--color-panel);text-align:right;font-weight:var(--cds-font-weight-medium);color:var(--color-fg-muted);padding:var(--cds-pad-xs) var(--cds-pad-sm);border-bottom:1px solid var(--color-border-line);white-space:nowrap}
+.att-table td{text-align:right;padding:var(--cds-pad-xs) var(--cds-pad-sm);border-bottom:1px solid var(--color-border-line);white-space:nowrap}
+.att-table th:first-child,.att-table td:first-child{text-align:left}
+.att-table td.low{color:var(--color-bad)}
+.att-notes{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.att-notes summary{cursor:pointer;color:var(--color-fg)}
+.att-notes dt{color:var(--color-fg);margin-top:var(--cds-gap-sm)}
+.att-notes dd{margin:2px 0 0}
+[data-dash-source-state=empty]{color:transparent}
+[data-dash-source-state=refreshing]{opacity:.5;transition:opacity var(--cds-dur-slow)}
+</style>
+
+<div class="att">
+  <header>
+    <h1 class="att-h1">Weekly attendance trend</h1>
+    <p class="att-sub">Matchbook Learning K–8 · campus average daily attendance (ADA), week by week</p>
+    <p class="att-take">Campus attendance for <span data-draw="week" data-source="summary" data-field="week">—</span> was <b data-draw="latest" data-source="summary" data-field="latest">—</b>, <b data-draw="change" data-source="summary" data-field="change">—</b> from <span data-draw="prior_week" data-source="summary" data-field="prior_week">—</span>, and the strongest week since <span data-draw="best_since" data-source="summary" data-field="best_since">—</span>. Year-to-date ADA is <b data-draw="ytd" data-source="summary" data-field="ytd">—</b>. <b data-draw="below90" data-source="summary" data-field="below90">—</b> of <span data-draw="weeks" data-source="summary" data-field="weeks">—</span> recorded weeks fell below 90%, with the low point in <span data-draw="low_week" data-source="summary" data-field="low_week">—</span> (<span data-draw="low" data-source="summary" data-field="low">—</span>).</p>
+  </header>
+
+  <section class="att-tiles" aria-label="Headline figures">
+    <div class="att-card">
+      <div class="att-tile-l">This week · campus ADA</div>
+      <div class="att-tile-v" data-draw="latest" data-source="summary" data-field="latest">—</div>
+      <div class="att-tile-n" data-draw="week" data-source="summary" data-field="week">—</div>
+    </div>
+    <div class="att-card">
+      <div class="att-tile-l">Change from the week before</div>
+      <div class="att-tile-v" data-draw="change" data-source="summary" data-field="change">—</div>
+      <div class="att-tile-n">vs. <span data-draw="prior_week" data-source="summary" data-field="prior_week">—</span> (<span data-draw="prior" data-source="summary" data-field="prior">—</span>)</div>
+    </div>
+    <div class="att-card">
+      <div class="att-tile-l">Year-to-date ADA</div>
+      <div class="att-tile-v" data-draw="ytd" data-source="summary" data-field="ytd">—</div>
+      <div class="att-tile-n">July 30 through the latest week</div>
+    </div>
+    <div class="att-card">
+      <div class="att-tile-l">Weeks below 90%</div>
+      <div class="att-tile-v" data-draw="below90" data-source="summary" data-field="below90">—</div>
+      <div class="att-tile-n">of <span data-draw="weeks" data-source="summary" data-field="weeks">—</span> recorded weeks</div>
+    </div>
+  </section>
+
+  <section class="att-card" id="trend">
+    <h2>Campus ADA by week</h2>
+    <p class="att-note">One point per school week. The dashed line marks 90%; weeks under it are shown in red. The shaded gap is fall break.</p>
+    <div class="att-toggle" role="group" aria-label="Series">
+      <button type="button" data-mode="campus" aria-pressed="true">Campus</button>
+      <button type="button" data-mode="split" aria-pressed="false">Elementary vs. middle</button>
+    </div>
+    <div class="att-chart" data-draw="trend" data-source="weekly">—</div>
+  </section>
+
+  <section class="att-card" id="grades">
+    <h2>Each grade, week by week</h2>
+    <p class="att-note">Every panel uses the same scale, so heights compare directly across grades. The number beside each grade is its latest week.</p>
+    <div class="att-grid" data-draw="grades" data-source="weekly">—</div>
+  </section>
+
+  <section class="att-card" id="table">
+    <h2>Weekly figures</h2>
+    <p class="att-note">ADA percentage for each week. Red cells are under 90%. Blank cells were not published for that week.</p>
+    <div class="att-tablewrap">
+      <table class="att-table" data-source="weekly" data-row-key="week_label">
+        <thead><tr>
+          <th data-field="week_label">Week</th><th data-field="days">Days</th><th data-field="campus">Campus</th><th data-field="elementary">Elem K–4</th><th data-field="middle">Middle 5–8</th><th data-field="K">K</th><th data-field="G1">1</th><th data-field="G2">2</th><th data-field="G3">3</th><th data-field="G4">4</th><th data-field="G5">5</th><th data-field="G6">6</th><th data-field="G7">7</th><th data-field="G8">8</th><th data-field="campus_ytd">YTD</th>
+        </tr></thead>
+        <tbody data-draw="table"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <details class="att-notes">
+    <summary>Where these numbers come from, and what is left out</summary>
+    <dl>
+      <dt>Source</dt>
+      <dd>September 14 through October 2 and November 2–6 come straight from the PowerSchool Attendance Summary by Grade reports, weekly and year-to-date. Elementary and middle are combined as days attended divided by (actual days minus days not enrolled), the same formula PowerSchool uses for ADA%. Every other week is the figure published in that week's Culture Weekly attendance snapshot.</dd>
+      <dt>Published figures vs. PowerSchool</dt>
+      <dd>Where both exist, the PowerSchool reports run later come in higher than what was published that week, most of all for Kindergarten and Grade 2 in late September. PowerSchool keeps changing as absences are corrected or coded after the fact, so a report run weeks later can differ from one run on Friday. Weeks still taken from the newsletter could shift if their reports are rerun.</dd>
+      <dt>Week of Aug 17–21</dt>
+      <dd>The campus figure is the one published in Week 4. Grade figures for that week were not published as a table, so they are worked back from the Week 5 "change vs. previous week" column.</dd>
+      <dt>Short weeks</dt>
+      <dd>Oct 5–8 and Nov 2–6 were four-day weeks, so a single absence moves those rates more.</dd>
+      <dt>Left out</dt>
+      <dd>July 30 through August 14: no weekly figure on hand, so the line starts August 17. October 12–16: fall break. The elementary and middle split is missing for Aug 17–21. An elementary report covering Sep 25 to Oct 2 overlaps two weeks and is not used.</dd>
+    </dl>
+  </details>
+</div>
+
+<script>
+(function(){
+  const THRESH = 90;
+  const COLS = ['campus','elementary','middle','K','G1','G2','G3','G4','G5','G6','G7','G8','campus_ytd'];
+  const GRADES = [['K','Kindergarten'],['G1','Grade 1'],['G2','Grade 2'],['G3','Grade 3'],['G4','Grade 4'],['G5','Grade 5'],['G6','Grade 6'],['G7','Grade 7'],['G8','Grade 8']];
+  const f2 = d3.format('.2f');
+  const pct = (v) => (v == null || isNaN(v)) ? '' : f2(v) + '%';
+  const signed = (v) => (v > 0 ? '+' : v < 0 ? '−' : '') + f2(Math.abs(v)) + ' pts';
+  const num = (v) => (v === '' || v == null) ? null : Number(v);
+  const parse = (rows) => rows.map((r) => {
+    const o = Object.assign({}, r);
+    COLS.forEach((c) => { o[c] = num(r[c]); });
+    o.days = Number(r.days);
+    o.date = new Date(r.week_start + 'T00:00:00Z');
+    return o;
+  }).sort((a, b) => a.date - b.date);
+  window.attMode = window.attMode || 'campus';
+
+  dash.calc('summary', {
+    inputs: ['weekly'],
+    title: 'Latest week vs. week before',
+    description: 'Latest week, the week before, the change, the latest year-to-date rate, and how many weeks fell under 90%.',
+    fn: (weekly) => {
+      const w = weekly.slice().sort((a, b) => (a.week_start < b.week_start ? -1 : 1)).map((r) => ({
+        label: r.week_label, ada: Number(r.campus), ytd: r.campus_ytd === '' ? null : Number(r.campus_ytd)
+      }));
+      const last = w[w.length - 1], prev = w[w.length - 2];
+      let since = null;
+      for (let i = w.length - 2; i >= 0; i--) { if (w[i].ada >= last.ada) { since = w[i].label; break; } }
+      const low = w.reduce((a, b) => (b.ada < a.ada ? b : a));
+      const ytdRow = w.filter((x) => x.ytd != null).pop();
+      return [{
+        week: last.label, latest: last.ada, prior_week: prev.label, prior: prev.ada,
+        change: Math.round((last.ada - prev.ada) * 100) / 100,
+        ytd: ytdRow ? ytdRow.ytd : null,
+        below90: w.filter((x) => x.ada < 90).length, weeks: w.length,
+        best_since: since, low_week: low.label, low: low.ada
+      }];
+    }
+  });
+
+  const S = () => { const d = dash.data('summary'); return d.status === 'ok' && d.data && d.data.length ? d.data[0] : null; };
+  const textDraws = {
+    week: (v) => v, prior_week: (v) => v, low_week: (v) => v,
+    best_since: (v) => v == null ? 'the first recorded week' : v,
+    latest: pct, prior: pct, ytd: pct, low: pct,
+    below90: (v) => String(v), weeks: (v) => String(v), change: signed
+  };
+  Object.keys(textDraws).forEach((k) => {
+    dash.draw(k, (el) => {
+      const s = S();
+      el.textContent = s ? textDraws[k](s[k]) : '—';
+      if (k === 'change') {
+        el.classList.toggle('up', !!s && s[k] > 0);
+        el.classList.toggle('down', !!s && s[k] < 0);
+      }
+    });
+  });
+
+  document.querySelectorAll('.att-toggle button').forEach((b) => {
+    b.addEventListener('click', () => {
+      window.attMode = b.getAttribute('data-mode');
+      document.querySelectorAll('.att-toggle button').forEach((o) => o.setAttribute('aria-pressed', String(o === b)));
+      dash.draw('trend');
+    });
+  });
+
+  function failed(el, d) {
+    el.replaceChildren();
+    if (d.status === 'error') {
+      const w = document.createElement('div');
+      w.style.cssText = 'display:flex;align-items:center;justify-content:center;gap:8px;min-height:inherit;font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)';
+      const dot = document.createElement('span');
+      dot.style.cssText = 'width:.375rem;height:.375rem;border-radius:50%;background:var(--color-bad)';
+      w.appendChild(dot); w.appendChild(document.createTextNode('Failed to load'));
+      el.appendChild(w);
+    } else { el.textContent = '—'; }
+  }
+  function makeTip(el) { const t = document.createElement('div'); t.className = 'att-tip'; t.hidden = true; el.appendChild(t); return t; }
+  function showTip(el, t, x, y, head, lines) {
+    t.replaceChildren();
+    const h = document.createElement('div'); h.className = 'att-tip-h'; h.textContent = head; t.appendChild(h);
+    lines.forEach(([c, name, val]) => {
+      const r = document.createElement('div'); r.className = 'att-tip-r';
+      if (c) { const s = document.createElement('span'); s.className = 'att-sw'; s.style.background = c; r.appendChild(s); }
+      const n = document.createElement('span'); n.textContent = name; r.appendChild(n);
+      const v = document.createElement('b'); v.textContent = val; r.appendChild(v);
+      t.appendChild(r);
+    });
+    t.hidden = false;
+    const W = el.clientWidth, tw = t.offsetWidth;
+    let left = x + 14; if (left + tw > W) left = x - tw - 14; if (left < 0) left = 0;
+    t.style.left = left + 'px'; t.style.top = Math.max(0, y - 12) + 'px';
+  }
+  function measure(svg, s) { const t = svg.append('text').text(s); const w = t.node().getComputedTextLength(); t.remove(); return w; }
+
+  dash.draw('trend', (el) => {
+    const d = dash.data('weekly');
+    if (d.status !== 'ok') { failed(el, d); return; }
+    el.replaceChildren();
+    const rows = parse(d.data);
+    const mode = window.attMode;
+    const series = mode === 'split'
+      ? [{ key: 'elementary', name: 'Elementary', color: dash.colors[0] }, { key: 'middle', name: 'Middle', color: dash.colors[1] }]
+      : [{ key: 'campus', name: 'Campus', color: dash.colors[0] }];
+    const W = Math.max(280, el.clientWidth || 600), H = 320;
+    const vals = rows.flatMap((r) => series.map((s) => r[s.key])).filter((v) => v != null);
+    const lo = Math.floor(Math.min(d3.min(vals), THRESH) - 1), hi = Math.ceil(Math.max(d3.max(vals), THRESH) + 1);
+    const svg = d3.select(el).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`)
+      .style('display', 'block').style('overflow', 'visible').style('font-size', 'var(--cds-font-size-caption)').style('font-family', 'var(--font-anthropic-sans)');
+    const y0 = d3.scaleLinear([lo, hi], [H - 28, 12]);
+    const yTicks = y0.ticks(5);
+    const m = { t: 12, b: 28, l: d3.max(yTicks, (v) => measure(svg, v + '%')) + 10, r: 8 };
+    const ends = series.map((s) => {
+      const last = rows.slice().reverse().find((r) => r[s.key] != null);
+      return { s, last, text: s.name + ' ' + pct(last[s.key]) };
+    });
+    m.r = d3.max(ends, (e) => measure(svg, e.text)) + 14;
+    const x = d3.scaleUtc([rows[0].date, rows[rows.length - 1].date], [m.l, W - m.r]);
+    const y = d3.scaleLinear([lo, hi], [H - m.b, m.t]);
+
+    // gaps longer than a week (breaks)
+    for (let i = 1; i < rows.length; i++) {
+      const gap = (rows[i].date - rows[i - 1].date) / 864e5;
+      if (gap > 10) {
+        const x1 = x(rows[i - 1].date) + (x(rows[i].date) - x(rows[i - 1].date)) * 0.2;
+        const x2 = x(rows[i].date) - (x(rows[i].date) - x(rows[i - 1].date)) * 0.2;
+        svg.append('rect').attr('x', x1).attr('y', m.t).attr('width', Math.max(0, x2 - x1)).attr('height', H - m.b - m.t)
+          .attr('fill', 'var(--cds-chart-grid)').attr('opacity', 0.6).attr('rx', 2);
+        svg.append('text').attr('x', (x1 + x2) / 2).attr('y', m.t + 12).attr('text-anchor', 'middle').attr('fill', 'var(--color-fg-muted)').text('Break');
+      }
+    }
+    svg.append('g').selectAll('line').data(yTicks).join('line')
+      .attr('x1', m.l).attr('x2', W - m.r).attr('y1', (v) => y(v)).attr('y2', (v) => y(v))
+      .attr('stroke', 'var(--cds-chart-grid)').attr('stroke-width', 1);
+    svg.append('g').selectAll('text').data(yTicks).join('text')
+      .attr('x', m.l - 8).attr('y', (v) => y(v)).attr('dy', '0.32em').attr('text-anchor', 'end').attr('fill', 'var(--color-fg-muted)').text((v) => v + '%');
+    svg.append('line').attr('x1', m.l).attr('x2', W - m.r).attr('y1', y(THRESH)).attr('y2', y(THRESH))
+      .attr('stroke', 'var(--cds-chart-reference)').attr('stroke-width', 1).attr('stroke-dasharray', '4 4');
+    svg.append('line').attr('x1', m.l).attr('x2', W - m.r).attr('y1', H - m.b).attr('y2', H - m.b).attr('stroke', 'var(--cds-chart-axis)');
+
+    const innerW = W - m.l - m.r;
+    const fit = Math.max(2, Math.floor(innerW / 64));
+    const step = Math.ceil(rows.length / fit);
+    const xt = rows.filter((_, i) => i % step === 0);
+    const fmtD = d3.utcFormat('%b %-d');
+    svg.append('g').selectAll('text').data(xt).join('text')
+      .attr('x', (r) => x(r.date)).attr('y', H - m.b + 18).attr('text-anchor', 'middle').attr('fill', 'var(--color-fg-muted)').text((r) => fmtD(r.date));
+
+    series.forEach((s) => {
+      const line = d3.line().defined((r) => r[s.key] != null).x((r) => x(r.date)).y((r) => y(r[s.key]));
+      svg.append('path').datum(rows).attr('d', line).attr('fill', 'none').attr('stroke', s.color)
+        .attr('stroke-width', 2).attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round');
+      svg.append('g').selectAll('circle').data(rows.filter((r) => r[s.key] != null)).join('circle')
+        .attr('cx', (r) => x(r.date)).attr('cy', (r) => y(r[s.key])).attr('r', 4)
+        .attr('fill', (r) => (r[s.key] < THRESH ? 'var(--cds-chart-status-critical)' : s.color))
+        .attr('stroke', 'var(--color-panel)').attr('stroke-width', 1.5);
+    });
+    // end labels, nudged apart
+    const placed = ends.map((e) => ({ e, y: y(e.last[e.s.key]) })).sort((a, b) => a.y - b.y);
+    for (let i = 1; i < placed.length; i++) if (placed[i].y - placed[i - 1].y < 14) placed[i].y = placed[i - 1].y + 14;
+    placed.forEach((p) => {
+      svg.append('text').attr('x', x(p.e.last.date) + 8).attr('y', p.y).attr('dy', '0.32em')
+        .attr('fill', p.e.s.color).style('font-weight', 600).text(p.e.text);
+    });
+
+    const tip = makeTip(el);
+    const hover = svg.append('line').attr('y1', m.t).attr('y2', H - m.b).attr('stroke', 'var(--cds-chart-axis)').attr('opacity', 0);
+    svg.append('rect').attr('x', m.l).attr('y', m.t).attr('width', innerW).attr('height', H - m.t - m.b).attr('fill', 'transparent')
+      .on('mousemove', (ev) => {
+        const [px] = d3.pointer(ev, svg.node());
+        const i = d3.minIndex(rows, (r) => Math.abs(x(r.date) - px));
+        const r = rows[i], p = rows[i - 1];
+        hover.attr('x1', x(r.date)).attr('x2', x(r.date)).attr('opacity', 1);
+        const lines = series.filter((s) => r[s.key] != null).map((s) => {
+          const ch = p && p[s.key] != null ? '  (' + signed(r[s.key] - p[s.key]) + ')' : '';
+          return [series.length > 1 ? s.color : null, s.name + ' ', pct(r[s.key]) + ch];
+        });
+        if (!lines.length) lines.push([null, 'Not published', '']);
+        const rect = el.getBoundingClientRect(), srect = svg.node().getBoundingClientRect();
+        const k = srect.width / W;
+        showTip(el, tip, x(r.date) * k + (srect.left - rect.left), y(d3.mean(series, (s) => r[s.key]) || THRESH) * k, r.week_label + (r.days < 5 ? ' · ' + r.days + ' days' : ''), lines);
+      })
+      .on('mouseleave', () => { tip.hidden = true; hover.attr('opacity', 0); });
+  });
+
+  dash.draw('grades', (el) => {
+    const d = dash.data('weekly');
+    if (d.status !== 'ok') { failed(el, d); return; }
+    el.replaceChildren();
+    const rows = parse(d.data);
+    const W = Math.max(260, el.clientWidth || 600);
+    const cols = W >= 680 ? 3 : (W >= 400 ? 2 : 1);
+    const gap = 16, PH = 118, pw = (W - gap * (cols - 1)) / cols;
+    const nrows = Math.ceil(GRADES.length / cols);
+    const H = nrows * PH + (nrows - 1) * gap;
+    const vals = rows.flatMap((r) => GRADES.map(([k]) => r[k])).filter((v) => v != null);
+    const lo = Math.floor(Math.min(d3.min(vals), THRESH) - 1), hi = Math.ceil(Math.max(d3.max(vals), THRESH) + 1);
+    const svg = d3.select(el).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`)
+      .style('display', 'block').style('overflow', 'visible').style('font-size', 'var(--cds-font-size-caption)').style('font-family', 'var(--font-anthropic-sans)');
+    const tip = makeTip(el);
+    const fmtD = d3.utcFormat('%b %-d');
+    GRADES.forEach(([k, name], gi) => {
+      const cx = (gi % cols) * (pw + gap), cy = Math.floor(gi / cols) * (PH + gap);
+      const g = svg.append('g').attr('transform', `translate(${cx},${cy})`);
+      const pts = rows.filter((r) => r[k] != null);
+      const last = pts[pts.length - 1];
+      const top = 22, bottom = PH - 16, padL = 4, padR = 10;
+      const x = d3.scaleUtc([rows[0].date, rows[rows.length - 1].date], [padL, pw - padR]);
+      const y = d3.scaleLinear([lo, hi], [bottom, top]);
+      g.append('text').attr('x', 0).attr('y', 12).attr('fill', 'var(--color-fg)').style('font-weight', 600).text(name);
+      g.append('text').attr('x', pw).attr('y', 12).attr('text-anchor', 'end')
+        .attr('fill', last[k] < THRESH ? 'var(--cds-chart-status-critical)' : 'var(--color-fg-muted)').text(pct(last[k]));
+      g.append('line').attr('x1', padL).attr('x2', pw - padR).attr('y1', y(THRESH)).attr('y2', y(THRESH))
+        .attr('stroke', 'var(--cds-chart-reference)').attr('stroke-dasharray', '3 3');
+      g.append('line').attr('x1', padL).attr('x2', pw - padR).attr('y1', bottom).attr('y2', bottom).attr('stroke', 'var(--cds-chart-axis)');
+      g.append('text').attr('x', padL).attr('y', PH - 2).attr('fill', 'var(--color-fg-muted)').text(fmtD(rows[0].date));
+      g.append('text').attr('x', pw - padR).attr('y', PH - 2).attr('text-anchor', 'end').attr('fill', 'var(--color-fg-muted)').text(fmtD(rows[rows.length - 1].date));
+      g.append('path').datum(pts).attr('d', d3.line().x((r) => x(r.date)).y((r) => y(r[k])))
+        .attr('fill', 'none').attr('stroke', dash.colors[0]).attr('stroke-width', 2).attr('stroke-linecap', 'round').attr('stroke-linejoin', 'round');
+      g.append('g').selectAll('circle').data(pts.filter((r) => r[k] < THRESH)).join('circle')
+        .attr('cx', (r) => x(r.date)).attr('cy', (r) => y(r[k])).attr('r', 3).attr('fill', 'var(--cds-chart-status-critical)');
+      const dot = g.append('circle').attr('r', 4).attr('fill', dash.colors[0]).attr('stroke', 'var(--color-panel)').attr('stroke-width', 1.5).attr('opacity', 0);
+      g.append('rect').attr('x', 0).attr('y', top).attr('width', pw).attr('height', bottom - top).attr('fill', 'transparent')
+        .on('mousemove', (ev) => {
+          const [px] = d3.pointer(ev, g.node());
+          const i = d3.minIndex(pts, (r) => Math.abs(x(r.date) - px));
+          const r = pts[i], p = pts[i - 1];
+          dot.attr('cx', x(r.date)).attr('cy', y(r[k])).attr('opacity', 1);
+          const rect = el.getBoundingClientRect(), srect = svg.node().getBoundingClientRect();
+          const s = srect.width / W;
+          showTip(el, tip, (cx + x(r.date)) * s + (srect.left - rect.left), (cy + y(r[k])) * s,
+            name + ' · ' + r.week_label, [[null, 'ADA ', pct(r[k]) + (p ? '  (' + signed(r[k] - p[k]) + ')' : '')]]);
+        })
+        .on('mouseleave', () => { tip.hidden = true; dot.attr('opacity', 0); });
+    });
+  });
+
+  dash.draw('table', (tb) => {
+    const d = dash.data('weekly');
+    tb.replaceChildren();
+    if (d.status !== 'ok') return;
+    const keys = ['week_label', 'days', 'campus', 'elementary', 'middle', 'K', 'G1', 'G2', 'G3', 'G4', 'G5', 'G6', 'G7', 'G8', 'campus_ytd'];
+    parse(d.data).slice().reverse().forEach((r) => {
+      const tr = document.createElement('tr');
+      tr.setAttribute('data-key', r.week_label);
+      keys.forEach((k) => {
+        const td = document.createElement('td');
+        if (k === 'week_label') td.textContent = r.week_label;
+        else if (k === 'days') td.textContent = String(r.days);
+        else {
+          td.textContent = pct(r[k]);
+          if (r[k] != null && r[k] < THRESH && k !== 'campus_ytd') td.className = 'low';
+        }
+        tr.appendChild(td);
+      });
+      tb.appendChild(tr);
+    });
+  });
+})();
+</script>
+
+</main></body></html>
