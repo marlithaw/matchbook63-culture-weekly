@@ -109,17 +109,23 @@ p a,li a,td a,figcaption a{color:var(--red);font-weight:600;text-decoration:unde
 .rub figcaption{font-size:12.5px;font-weight:600;margin-top:6px;color:var(--soft)}
 .print-rubric-label{display:none}
 .pbis{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px 24px;margin:18px 0 26px;box-shadow:0 10px 30px -22px rgba(60,30,10,.5)}
-.pbis-k{font:800 12px var(--b);letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
-.pbis-big{font:800 clamp(22px,3.6vw,30px)/1.25 var(--h);margin:8px 0 18px;text-wrap:balance}
+.pbis-h{font:900 clamp(24px,3.4vw,32px)/1.15 var(--h);margin:0 0 6px;text-wrap:balance}
+.pbis-k{font:800 12px var(--b);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:18px}
 .bad{color:var(--red)}.good{color:#1E8A4C}
-.pbis-bars{display:grid;gap:10px;margin-bottom:18px}
-.pb{display:grid;grid-template-columns:170px 1fr 64px;gap:12px;align-items:center;font-size:14px}
-.pb-l{color:var(--soft);font-weight:600}
-.pb-t{height:16px;background:#F3ECE1;border-radius:999px;overflow:hidden}
-.pb-t i{display:block;height:100%;border-radius:999px}
-.pb-t i.r{background:var(--red)}.pb-t i.y{background:#F2B705}.pb-t i.g{background:#1E8A4C}
-.pb-n{font:800 16px var(--h);text-align:right;font-variant-numeric:tabular-nums}
-@media(max-width:560px){.pb{grid-template-columns:1fr 56px}.pb-l{grid-column:1/-1}}
+.ratio{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:22px}
+.ratio>div{border-radius:16px;padding:16px 20px}
+.ratio .now{background:#FFF4F3}.ratio .goal{background:#EAF6EE}
+.ratio b{display:block;font:900 clamp(40px,6vw,56px)/1.05 var(--h);font-variant-numeric:tabular-nums;margin-bottom:6px}
+.ratio span{font-size:15px;color:var(--soft)}
+@media(max-width:560px){.ratio{grid-template-columns:1fr}}
+.bar-hd{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;align-items:baseline;margin-bottom:8px}
+.bar-hd b{font:800 17px var(--h)}
+.bar-hd span{font-size:15px;color:var(--soft)}.bar-hd span b{font:800 16px var(--h)}
+.bar{height:22px;border-radius:999px;margin-bottom:20px;overflow:hidden}
+.bar.goal{background:#EAF6EE;border:2px solid #1E8A4C}
+.bar.goal i{display:block;height:100%;background:#F2B705;border-right:2px solid #D29E00}
+.bar.corr{background:var(--red)}
+.pbis-note{font-size:14.5px;color:var(--soft);margin:-6px 0 20px}
 .pbis-row{display:flex;flex-wrap:wrap;gap:28px;margin-bottom:14px}
 .pbis-row b{display:block;font:900 30px/1 var(--h)}
 .pbis-row span{font-size:14px;color:var(--soft)}
@@ -309,14 +315,15 @@ footer p{color:#cfc5bf;font-size:14px;margin:0}
 <h2>Recognition students can feel</h2>
 <p class="lede">LiveSchool is the foundation of Tier 1 support. When the same choice earns the same recognition in every class, students trust it and work toward it.</p>
 <div class="pbis">
-<div class="pbis-k">DBRC students · grades 6–8 · August 3 to November 13</div>
-<p class="pbis-big">For every <b>10</b> corrections, these students earned <b class="bad">7</b> positive points. The goal is <b class="good">40</b>.</p>
-<div class="pbis-bars" role="img" aria-label="928 positive points compared with 1,322 corrections and a goal of 5,288 positive points">
-<div class="pb"><span class="pb-l">Corrections</span><span class="pb-t"><i class="r" style="width:25%"></i></span><span class="pb-n">1,322</span></div>
-<div class="pb"><span class="pb-l">Positive points earned</span><span class="pb-t"><i class="y" style="width:17.5%"></i></span><span class="pb-n">928</span></div>
-<div class="pb"><span class="pb-l">Positive points at 4 : 1</span><span class="pb-t"><i class="g" style="width:100%"></i></span><span class="pb-n">5,288</span></div>
-</div>
-<div class="pbis-row"><div><b class="bad">19 of 21</b><span>below the 4 : 1 goal</span></div><div><b class="bad">16 of 21</b><span>earn fewer points than their grade’s average</span></div></div>
+<h3 class="pbis-h">LiveSchool recognition for DBRC students, grades 6–8</h3>
+<div class="pbis-k">Year-to-date totals · August 3 to November 13 · 22 students</div>
+<div class="ratio"><div class="now"><b class="bad">0.70 : 1</b><span>Where DBRC students are: positive points for every correction</span></div><div class="goal"><b class="good">4 : 1</b><span>The PBIS goal: four positives for every correction</span></div></div>
+<div class="bar-hd"><b>Positive points</b><span><b class="bad">928</b> earned of the <b class="good">5,288</b> goal (1,322 × 4)</span></div>
+<div class="bar goal" role="img" aria-label="928 positive points earned of a 5,288 point goal"><i style="width:17.55%"></i></div>
+<div class="bar-hd"><b>Corrections</b><span><b class="bad">1,322</b></span></div>
+<div class="bar corr" role="img" aria-label="1,322 corrections, one quarter of the goal line" style="width:25%"></div>
+<p class="pbis-note">Corrections = LiveSchool demerits plus Restorative Room referrals counted three times each.</p>
+<div class="pbis-row"><div><b class="bad">19 of 22</b><span>students below the 4 : 1 goal</span></div><div><b class="bad">16 of 22</b><span>students earn fewer points than their grade’s average</span></div></div>
 <p class="pbis-why"><b>Why it matters:</b> the students who need recognition most are getting the least of it. When correction far outweighs praise, behavior problems tend to continue and students disengage. Closing the gap means catching these students doing it right, by name, every period.</p>
 <div class="btns" style="margin:0"><a class="btn alt" href="https://drive.google.com/file/d/139wO1GOWHxGbkT7ZfilUbnpNfOKEU4jF/view?usp=sharing">Full PBIS balance table</a></div>
 </div>
