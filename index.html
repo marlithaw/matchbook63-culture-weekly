@@ -124,6 +124,25 @@ p a,li a,td a,figcaption a{color:var(--red);font-weight:600;text-decoration:unde
 .pbis-row b{display:block;font:900 30px/1 var(--h)}
 .pbis-row span{font-size:14px;color:var(--soft)}
 .pbis-why{background:#FFF4F3;border-radius:14px;padding:14px 16px;font-size:15.5px}
+.blades{display:grid;grid-template-columns:240px 1fr;gap:24px;align-items:center;margin:6px 0 24px}
+.blades img{width:240px;aspect-ratio:3/4;object-fit:cover;border-radius:18px}
+.tagline{font:800 12px var(--b);letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+@media(max-width:600px){.blades{grid-template-columns:1fr}.blades img{width:100%;aspect-ratio:4/3}}
+.grat{display:grid;grid-template-columns:210px 1fr;gap:24px;align-items:center;background:linear-gradient(135deg,#FFF6DC,#FFE9D6);border-radius:22px;padding:22px 26px;margin:4px 0 22px}
+.grat-art{width:210px;height:auto}
+@media(max-width:600px){.grat{grid-template-columns:1fr;text-align:left}.grat-art{width:160px}}
+.when{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:10px}
+.when>div{border-left:4px solid var(--sun);padding:4px 0 4px 14px}
+.when b{display:block;font:800 17px var(--h)}
+.when span{display:block;font-size:15px;color:var(--soft)}
+.prizes{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:6px 0 22px}
+@media(max-width:640px){.prizes{grid-template-columns:repeat(2,1fr)}}
+.prizes svg,.coming svg{width:44px;height:44px;display:block;margin-bottom:6px}
+.prizes b{display:block;font:800 16px var(--h)}
+.prizes span{display:block;font-size:13.5px;color:var(--soft);line-height:1.4}
+.coming{display:grid;gap:12px;margin-bottom:10px}
+.coming>div{display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:center}
+.coming p{margin:0}
 /* Footer */
 footer{background:#2A2421;color:#efe7e2;padding-block:40px;margin-top:40px}
 footer h2{color:#fff;font-size:clamp(26px,4.6vw,36px)}
@@ -142,7 +161,7 @@ footer p{color:#cfc5bf;font-size:14px;margin:0}
 </div></header>
 
 <nav aria-label="Newsletter sections"><div class="row in">
-<a href="#commitment">Commitment</a><a href="#morning-meeting">Morning Meeting</a><a href="#attendance">Attendance</a><a href="#counselor">Counselor’s Corner</a><a href="#dbrc">DBRC</a><a href="#culture-corner">Culture Corner</a><a href="#liveschool">LiveSchool</a><a href="#resources">Resources</a><a href="#looking-ahead">Looking Ahead</a>
+<a href="#commitment">Commitment</a><a href="#culture-corner">Culture Corner</a><a href="#counselor">Counselor’s Corner</a><a href="#morning-meeting">Morning Meeting</a><a href="#attendance">Attendance</a><a href="#dbrc">DBRC</a><a href="#liveschool">LiveSchool</a><a href="#resources">Resources</a><a href="#looking-ahead">Looking Ahead</a>
 </div></nav>
 
 <main>
@@ -169,6 +188,67 @@ footer p{color:#cfc5bf;font-size:14px;margin:0}
 <div class="btns"><a class="btn alt" href="lap-to-tap/if-then-teacher-moves.html">If this, then that</a><a class="btn alt" href="lap-to-tap/re-entry-conversation.html">The two-minute return</a><a class="btn alt" href="lap-to-tap/seating-chart.pdf">Seating chart example</a><a class="btn alt" href="lap-to-tap/science-behind-the-practice.html">The science behind it</a></div>
 <p class="muted" style="margin-bottom:6px">Written reflection sheets by grade band (English and Español):</p>
 <p><a href="lap-to-tap/written-reflection-k-1.pdf">K–1</a> · <a href="lap-to-tap/written-reflection-k-1-es.pdf">K–1 ES</a> · <a href="lap-to-tap/written-reflection-2-3.pdf">2–3</a> · <a href="lap-to-tap/written-reflection-2-3-es.pdf">2–3 ES</a> · <a href="lap-to-tap/written-reflection-4-5.pdf">4–5</a> · <a href="lap-to-tap/written-reflection-4-5-es.pdf">4–5 ES</a> · <a href="lap-to-tap/written-reflection-6-8.pdf">6–8</a> · <a href="lap-to-tap/written-reflection-6-8-es.pdf">6–8 ES</a></p>
+</div></section>
+
+<!-- CULTURE CORNER -->
+<section id="culture-corner"><div class="in">
+<div class="eyebrow">Culture Corner</div>
+<h2>Initiatives in action</h2>
+<div class="blades"><img src="wk15-blades-restorative.jpg" alt="Mr. Blades reviews a student’s written reflection in the Restorative Room" loading="lazy">
+<div><div class="tagline">Restorative in action</div><h3 style="margin-top:6px">Removed from class, working back toward it</h3><p>Mr. Blades works through the written reflection with a student in the Restorative Room. The student gets feedback and revises, the same moves the writing in Morning Meeting asks for. The goal is a return to class with a better choice ready.</p></div></div>
+<h3>Inspect what we expect</h3>
+<p>Give the direction, set the timer, walk the lap with your clipboard, then name every student who is on it. Spirit days and Book Fair visits get the same three steps.</p>
+<h3>This week’s clinics</h3>
+<ul class="plain">
+<li><b>PBIS Best Practices:</b> LiveSchool and Written Reflections</li>
+<li><b>DBRC Documentation</b></li>
+<li><b>SchoolAI, Day 1:</b> Overview and Dashboard</li>
+<li><b>SchoolAI, Day 2:</b> Overview and Dashboard</li>
+</ul>
+<h3>Shout-outs</h3>
+<ul class="plain">
+<li><b>Ms. Kern and Ms. Flores</b> for 27 gratitude lessons in two weeks, rescheduled around testing, field trips and enrichment so no class missed out.</li>
+<li><b>Student Council and Ms. Flores</b> for planning this week’s Spirit Week at their very first meeting.</li>
+<li><b>The grades 3–8 Enrichment teams</b> for a strong first full week.</li>
+</ul>
+<p><b>Special Education Office Hours</b> with Whitney White, Director of Special Education: Tuesdays and Thursdays, 2:30–3:15 p.m. Bring a question, an assignment, or a concern.</p>
+</div></section>
+
+<!-- COUNSELOR'S CORNER -->
+<section id="counselor"><div class="in">
+<div class="eyebrow">Counselor’s Corner</div>
+<div class="grat">
+<svg class="grat-art" viewBox="0 0 240 200" aria-hidden="true">
+<g transform="translate(24 30) rotate(-18)"><path d="M30 0C46 18 60 30 60 46c0 14-12 22-30 22S0 60 0 46C0 30 14 18 30 0z" fill="#E8742A"/><path d="M30 8v58" stroke="#B4501A" stroke-width="3" fill="none"/></g>
+<g transform="translate(170 18) rotate(24)"><path d="M24 0C37 14 48 24 48 37c0 11-10 18-24 18S0 48 0 37C0 24 11 14 24 0z" fill="#F2B705"/><path d="M24 6v46" stroke="#C48F00" stroke-width="3" fill="none"/></g>
+<g transform="translate(160 120) rotate(-30)"><path d="M22 0C34 13 44 22 44 34c0 10-9 16-22 16S0 44 0 34C0 22 10 13 22 0z" fill="#E21C24"/><path d="M22 6v42" stroke="#9E1218" stroke-width="3" fill="none"/></g>
+<rect x="62" y="62" width="116" height="82" rx="12" fill="#fff" stroke="#EADFCF" stroke-width="3" transform="rotate(-6 120 103)"/>
+<text x="120" y="98" text-anchor="middle" font-family="Nunito, sans-serif" font-weight="900" font-size="22" fill="#2A2421" transform="rotate(-6 120 103)">Thank</text>
+<text x="120" y="122" text-anchor="middle" font-family="Nunito, sans-serif" font-weight="900" font-size="22" fill="#E21C24" transform="rotate(-6 120 103)">you!</text>
+<path d="M120 150c-8-7-16-12-16-19 0-5 4-8 8-8 3 0 6 2 8 5 2-3 5-5 8-5 4 0 8 3 8 8 0 7-8 12-16 19z" fill="#E21C24"/>
+<circle cx="40" cy="150" r="5" fill="#F2B705"/><circle cx="210" cy="90" r="4" fill="#E8742A"/><circle cx="96" cy="26" r="4" fill="#E21C24"/>
+</svg>
+<div>
+<h2 style="margin-bottom:10px">Gratitude, all the way around</h2>
+<p class="lede" style="margin:0">The November gratitude lessons reach their last classrooms this week: <b>27 lessons</b> across the building. Before break, give students one more chance to name someone at school they are grateful for, and why.</p>
+</div>
+</div>
+<div class="when">
+<div><b>Mon 11/16</b><span>Ms. Kern · Martinez 10:15, Boehler 10:50, Mia 11:25</span><span>Ms. Flores · Moses 8:05</span></div>
+<div><b>Tue 11/17</b><span>Ms. Flores · Eichel 8:05</span></div>
+</div>
+<p class="muted">Please stay in the room and join in. If a time no longer works, reach out early so the lesson is moved, not missed.</p>
+<h3>Friday Hallway Hollers</h3>
+<div class="prizes">
+<div><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="10" width="32" height="28" rx="4" fill="#FFE9A8" stroke="#2A2421" stroke-width="2.5"/><path d="M8 18h32M24 10v28" stroke="#2A2421" stroke-width="2.5"/><circle cx="24" cy="24" r="4" fill="#E21C24"/></svg><b>Coupon book</b><span>LiveSchool reward coupons</span></div>
+<div><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6l5.4 11 12.1 1.8-8.8 8.5 2.1 12L24 33.6 13.2 39.3l2.1-12-8.8-8.5L18.6 17z" fill="#F2B705" stroke="#2A2421" stroke-width="2.5" stroke-linejoin="round"/></svg><b>10 points</b><span>Awarded by the counseling team, not added again in class</span></div>
+<div><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M14 8h20v8a10 10 0 0 1-20 0z" fill="#E21C24" stroke="#2A2421" stroke-width="2.5"/><path d="M14 11H8a6 6 0 0 0 6 7M34 11h6a6 6 0 0 1-6 7M24 26v8M16 40h16" stroke="#2A2421" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg><b>Trinket + certificate</b><span>From administration</span></div>
+<div><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 40V20M14 40V14M24 40V8M34 40V14M42 40V20" stroke="#E8742A" stroke-width="4" stroke-linecap="round"/><circle cx="24" cy="8" r="3" fill="#E21C24"/></svg><b>The hallway cheers</b><span>Classes step out when the music plays</span></div>
+</div>
+<div class="coming">
+<div><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 12c6-3 12-3 18 1 6-4 12-4 18-1v26c-6-3-12-3-18 1-6-4-12-4-18-1z" fill="#FFE9A8" stroke="#2A2421" stroke-width="2.5" stroke-linejoin="round"/><path d="M24 13v26" stroke="#2A2421" stroke-width="2.5"/></svg><p><b>Mentor Readers.</b> Middle schoolers who buy this LiveSchool reward read with a K–3 class. K–3 teachers can still send Ms. Kern a day and time.</p></div>
+<div><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5l15 6v11c0 10-6 17-15 21C15 39 9 32 9 22V11z" fill="#FDECEA" stroke="#2A2421" stroke-width="2.5" stroke-linejoin="round"/><path d="M17 23l5 5 9-10" stroke="#E21C24" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><p><b>Body Safety lessons.</b> Set as virtual sessions on January 25 and 26.</p></div>
+</div>
 </div></section>
 
 <!-- MORNING MEETING -->
@@ -199,20 +279,6 @@ footer p{color:#cfc5bf;font-size:14px;margin:0}
 <p class="muted">Follow-up stays the same: teachers make the first parent contact when a student begins missing school. At five absences, email the counseling team so they can follow up with the family and decide what support comes next.</p>
 </div></section>
 
-<!-- COUNSELOR'S CORNER -->
-<section id="counselor"><div class="in">
-<div class="eyebrow">Counselor’s Corner</div>
-<h2>Gratitude, all the way around</h2>
-<p class="lede">The November gratitude lessons reach their last classrooms this week, completing 27 lessons across the building. Before break, give students one more chance to name someone at school they are grateful for, and why.</p>
-<table class="sched">
-<tr><td>Mon 11/16</td><td>Ms. Kern: Martinez 10:15 · Boehler 10:50 · Mia 11:25<br>Ms. Flores: Moses 8:05</td></tr>
-<tr><td>Tue 11/17</td><td>Ms. Flores: Eichel 8:05</td></tr>
-</table>
-<p class="muted">Please stay in the room and join in. If a time no longer works, reach out early so the lesson is moved, not missed.</p>
-<p><b>Friday Hallway Hollers.</b> Honorees are celebrated together at Cypher. Each one receives a LiveSchool coupon book, 10 points, and a trinket and certificate.</p>
-<p><b>Coming up.</b> Middle schoolers who buy the Mentor Reader reward read with a K–3 class; teachers can still send Ms. Kern a day and time. Body Safety lessons are set as virtual sessions on January 25 and 26.</p>
-</div></section>
-
 <!-- DBRC -->
 <section id="dbrc"><div class="in">
 <div class="eyebrow">DBRC</div>
@@ -235,33 +301,6 @@ footer p{color:#cfc5bf;font-size:14px;margin:0}
 <h3 id="rubrics">Student rubrics · RK–K through Grade 8</h3>
 <p>Use the grade-level rubric to make feedback concrete and support a Reset + Repair Plan. Choose a language, then click a grade to open it full size for printing.</p>
 <div class="rub-lang"><input type="radio" name="rublang" id="rl-en" checked><label for="rl-en">English</label><input type="radio" name="rublang" id="rl-es"><label for="rl-es">Español</label><input type="radio" name="rublang" id="rl-ht"><label for="rl-ht">Kreyòl ayisyen</label><div class="rl-pane rl-en"><div class="rubgrid"><figure class="rub"><a href="rubrics/RK-K_Rubric.png" target="_blank" rel="noopener"><img src="rubrics/RK-K_Rubric.png" alt="RK&ndash;K student rubric and reset plan" loading="lazy"><span class="print-rubric-label">Open rubric</span></a><figcaption>RK&ndash;K &middot; My Body, My Voice, My Work</figcaption></figure><figure class="rub"><a href="rubrics/Grade1_Rubric.png" target="_blank" rel="noopener"><img src="rubrics/Grade1_Rubric.png" alt="Grade 1 student rubric and reset plan" loading="lazy"><span class="print-rubric-label">Open rubric</span></a><figcaption>Grade 1 &middot; My Choices Help Me Learn</figcaption></figure><figure class="rub"><a href="rubrics/Grade2_Rubric.png" target="_blank" rel="noopener"><img src="rubrics/Grade2_Rubric.png" alt="Grade 2 student rubric and reset plan" loading="lazy"><span class="print-rubric-label">Open rubric</span></a><figcaption>Grade 2 &middot; My Toolbox Helps Me Reset</figcaption></figure><figure class="rub"><a href="rubrics/Grade3_Rubric.png" target="_blank" rel="noopener"><img src="rubrics/Grade3_Rubric.png" alt="Grade 3 student rubric and reset plan" loading="lazy"><span class="print-rubric-label">Open rubric</span></a><figcaption>Grade 3 &middot; My Choices Impact My Team</figcaption></figure><figure class="rub"><a href="rubrics/Grade4_Rubric.png" target="_blank" rel="noopener"><img src="rubrics/Grade4_Rubric.png" alt="Grade 4 student rubric and reset plan" loading="lazy"><span class="print-rubric-label">Open rubric</span></a><figcaption>Grade 4 &middot; My Choices Shape the Community</figcaption></figure><figure class="rub"><a href="rubrics/Grade5_Rubric.png" target="_blank" rel="noopener"><img src="rubrics/Grade5_Rubric.png" alt="Grade 5 student rubric and reset plan" loading="lazy"><span class="print-rubric-label">Open rubric</span></a><figcaption>Grade 5 &middot; My Leadership Choices Matter</figcaption></figure><figure class="rub"><a href="rubrics/Grade6_Rubric.png" target="_blank" rel="noopener"><img src="rubrics/Grade6_Rubric.png" alt="Grade 6 student rubric and reset plan" loading="lazy"><span class="print-rubric-label">Open rubric</span></a><figcaption>Grade 6 &middot; My Choices Reflect My Identity</figcaption></figure><figure class="rub"><a href="rubrics/Grade7_Rubric.png" target="_blank" rel="noopener"><img src="rubrics/Grade7_Rubric.png" alt="Grade 7 student rubric and reset plan" loading="lazy"><span class="print-rubric-label">Open rubric</span></a><figcaption>Grade 7 &middot; My Choices Influence the Room</figcaption></figure><figure class="rub"><a href="rubrics/Grade8_Rubric.png" target="_blank" rel="noopener"><img src="rubrics/Grade8_Rubric.png" alt="Grade 8 student rubric and reset plan" loading="lazy"><span class="print-rubric-label">Open rubric</span></a><figcaption>Grade 8 &middot; My Choices Build My Legacy</figcaption></figure></div></div><div class="rl-pane rl-es"><div class="rubgrid"><figure class="rub"><a href="rubrics/es/RK-K_Rubric.png" target="_blank" rel="noopener"><img src="rubrics/es/RK-K_Rubric.png" alt="RK&ndash;K rubric, Español" loading="lazy"><span class="print-rubric-label">Open rubric</span></a><figcaption>RK&ndash;K &middot; Mi cuerpo, mi voz, mi trabajo</figcaption></figure><figure class="rub"><a href="rubrics/es/Grade1_Rubric.png" target="_blank" rel="noopener"><img src="rubrics/es/Grade1_Rubric.png" alt="Grado 1 rubric, Español" loading="lazy"><span class="print-rubric-label">Open rubric</span></a><figcaption>Grado 1 &middot; Mis decisiones me ayudan a aprender</figcaption></figure><figure class="rub"><a href="rubrics/es/Grade2_Rubric.png" target="_blank" rel="noopener"><img src="rubrics/es/Grade2_Rubric.png" alt="Grado 2 rubric, Español" loading="lazy"><span class="print-rubric-label">Open rubric</span></a><figcaption>Grado 2 &middot; Mi caja de herramientas me ayuda a reiniciar</figcaption></figure><figure class="rub"><a href="rubrics/es/Grade3_Rubric.png" target="_blank" rel="noopener"><img src="rubrics/es/Grade3_Rubric.png" alt="Grado 3 rubric, Español" loading="lazy"><span class="print-rubric-label">Open rubric</span></a><figcaption>Grado 3 &middot; Mis decisiones afectan a mi equipo</figcaption></figure><figure class="rub"><a href="rubrics/es/Grade4_Rubric.png" target="_blank" rel="noopener"><img src="rubrics/es/Grade4_Rubric.png" alt="Grado 4 rubric, Español" loading="lazy"><span class="print-rubric-label">Open rubric</span></a><figcaption>Grado 4 &middot; Mis decisiones forman la comunidad</figcaption></figure><figure class="rub"><a href="rubrics/es/Grade5_Rubric.png" target="_blank" rel="noopener"><img src="rubrics/es/Grade5_Rubric.png" alt="Grado 5 rubric, Español" loading="lazy"><span class="print-rubric-label">Open rubric</span></a><figcaption>Grado 5 &middot; Mis decisiones de liderazgo importan</figcaption></figure><figure class="rub"><a href="rubrics/es/Grade6_Rubric.png" target="_blank" rel="noopener"><img src="rubrics/es/Grade6_Rubric.png" alt="Grado 6 rubric, Español" loading="lazy"><span class="print-rubric-label">Open rubric</span></a><figcaption>Grado 6 &middot; Mis decisiones reflejan mi identidad</figcaption></figure><figure class="rub"><a href="rubrics/es/Grade7_Rubric.png" target="_blank" rel="noopener"><img src="rubrics/es/Grade7_Rubric.png" alt="Grado 7 rubric, Español" loading="lazy"><span class="print-rubric-label">Open rubric</span></a><figcaption>Grado 7 &middot; Mis decisiones influyen en el salón</figcaption></figure><figure class="rub"><a href="rubrics/es/Grade8_Rubric.png" target="_blank" rel="noopener"><img src="rubrics/es/Grade8_Rubric.png" alt="Grado 8 rubric, Español" loading="lazy"><span class="print-rubric-label">Open rubric</span></a><figcaption>Grado 8 &middot; Mis decisiones construyen mi legado</figcaption></figure></div></div><div class="rl-pane rl-ht"><div class="rubgrid"><figure class="rub"><a href="rubrics/ht/RK-K_Rubric.png" target="_blank" rel="noopener"><img src="rubrics/ht/RK-K_Rubric.png" alt="RK&ndash;K rubric, Kreyòl ayisyen" loading="lazy"><span class="print-rubric-label">Open rubric</span></a><figcaption>RK&ndash;K &middot; Kò m, vwa m, travay mwen</figcaption></figure><figure class="rub"><a href="rubrics/ht/Grade1_Rubric.png" target="_blank" rel="noopener"><img src="rubrics/ht/Grade1_Rubric.png" alt="Klas 1 rubric, Kreyòl ayisyen" loading="lazy"><span class="print-rubric-label">Open rubric</span></a><figcaption>Klas 1 &middot; Chwa m fè ede m aprann</figcaption></figure><figure class="rub"><a href="rubrics/ht/Grade2_Rubric.png" target="_blank" rel="noopener"><img src="rubrics/ht/Grade2_Rubric.png" alt="Klas 2 rubric, Kreyòl ayisyen" loading="lazy"><span class="print-rubric-label">Open rubric</span></a><figcaption>Klas 2 &middot; Bwat zouti m ede m rekòmanse</figcaption></figure><figure class="rub"><a href="rubrics/ht/Grade3_Rubric.png" target="_blank" rel="noopener"><img src="rubrics/ht/Grade3_Rubric.png" alt="Klas 3 rubric, Kreyòl ayisyen" loading="lazy"><span class="print-rubric-label">Open rubric</span></a><figcaption>Klas 3 &middot; Chwa m fè gen efè sou ekip mwen</figcaption></figure><figure class="rub"><a href="rubrics/ht/Grade4_Rubric.png" target="_blank" rel="noopener"><img src="rubrics/ht/Grade4_Rubric.png" alt="Klas 4 rubric, Kreyòl ayisyen" loading="lazy"><span class="print-rubric-label">Open rubric</span></a><figcaption>Klas 4 &middot; Chwa m fè fòme kominote a</figcaption></figure><figure class="rub"><a href="rubrics/ht/Grade5_Rubric.png" target="_blank" rel="noopener"><img src="rubrics/ht/Grade5_Rubric.png" alt="Klas 5 rubric, Kreyòl ayisyen" loading="lazy"><span class="print-rubric-label">Open rubric</span></a><figcaption>Klas 5 &middot; Chwa lidèchip mwen yo enpòtan</figcaption></figure><figure class="rub"><a href="rubrics/ht/Grade6_Rubric.png" target="_blank" rel="noopener"><img src="rubrics/ht/Grade6_Rubric.png" alt="Klas 6 rubric, Kreyòl ayisyen" loading="lazy"><span class="print-rubric-label">Open rubric</span></a><figcaption>Klas 6 &middot; Chwa m fè montre kiyès mwen ye</figcaption></figure><figure class="rub"><a href="rubrics/ht/Grade7_Rubric.png" target="_blank" rel="noopener"><img src="rubrics/ht/Grade7_Rubric.png" alt="Klas 7 rubric, Kreyòl ayisyen" loading="lazy"><span class="print-rubric-label">Open rubric</span></a><figcaption>Klas 7 &middot; Chwa m fè gen enfliyans sou klas la</figcaption></figure><figure class="rub"><a href="rubrics/ht/Grade8_Rubric.png" target="_blank" rel="noopener"><img src="rubrics/ht/Grade8_Rubric.png" alt="Klas 8 rubric, Kreyòl ayisyen" loading="lazy"><span class="print-rubric-label">Open rubric</span></a><figcaption>Klas 8 &middot; Chwa m fè bati eritaj mwen</figcaption></figure></div></div></div>
-</div></section>
-
-<!-- CULTURE CORNER -->
-<section id="culture-corner"><div class="in">
-<div class="eyebrow">Culture Corner</div>
-<h2>Initiatives in action</h2>
-<div class="media">
-<figure><video src="wk15-stewart-schoolai.mp4" poster="wk15-stewart-schoolai-poster.jpg" controls playsinline preload="metadata" aria-label="A student in Mr. Stewart’s class explains how the SchoolAI tutor gave clues instead of the answer"></video><figcaption><b>SchoolAI in Mr. Stewart’s class</b>Asked for the answer, the tutor offered clues. The student rounded, estimated, and solved on paper.</figcaption></figure>
-<figure><video src="wk15-mm-reflection.mp4" poster="wk15-mm-reflection-poster.jpg" controls playsinline preload="metadata" aria-label="Middle school students discuss the reflection writing during Morning Meeting"></video><figcaption><b>Reflection writing in Morning Meeting</b>Students practice the written reflection before they ever need it.</figcaption></figure>
-<figure><img src="wk15-blades-restorative.jpg" alt="Mr. Blades reviews a student’s written reflection in the Restorative Room" loading="lazy"><figcaption><b>Mr. Blades in the Restorative Room</b>Feedback and revision on the written reflection, working back toward class.</figcaption></figure>
-</div>
-<h3>Inspect what we expect</h3>
-<p>Give the direction, set the timer, walk the lap with your clipboard, then name every student who is on it. Spirit days and Book Fair visits get the same three steps.</p>
-<h3>This week’s clinics</h3>
-<ul class="plain">
-<li><b>PBIS Best Practices:</b> LiveSchool and Written Reflections</li>
-<li><b>DBRC Documentation</b></li>
-<li><b>SchoolAI, Day 1:</b> Overview and Dashboard</li>
-<li><b>SchoolAI, Day 2:</b> Overview and Dashboard</li>
-</ul>
-<h3>Shout-outs</h3>
-<ul class="plain">
-<li><b>Ms. Kern and Ms. Flores</b> for 27 gratitude lessons in two weeks, rescheduled around testing, field trips and enrichment so no class missed out.</li>
-<li><b>Student Council and Ms. Flores</b> for planning this week’s Spirit Week at their very first meeting.</li>
-<li><b>The grades 3–8 Enrichment teams</b> for a strong first full week.</li>
-</ul>
-<p><b>Special Education Office Hours</b> with Whitney White, Director of Special Education: Tuesdays and Thursdays, 2:30–3:15 p.m. Bring a question, an assignment, or a concern.</p>
 </div></section>
 
 <!-- LIVESCHOOL -->
